@@ -1,0 +1,52 @@
+<script>
+    const omegaStick = document.getElementById('omega-stick');
+    const vStick = document.getElementById('v-stick');
+
+    const omegaJoystick = document.getElementById('omega-joystick');
+    const vJoystick = document.getElementById('v-joystick');
+
+    let omega = 0;  // オメガの値
+    let v = 0;      // Vの値（mm/s）
+
+    // オメガ用のジョイスティック（X軸のみ）
+    omegaJoystick.addEventListener('mousemove', (event) => {
+        const rect = omegaJoystick.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        omega = Math.max(-1, Math.min(1, x / (rect.width / 2)));
+        omegaStick.style.transform = `translateX(${x}px)`;
+        sendDataToWebSocket();
+    });
+
+    // V用のジョイスティック（Y軸のみ、mm/sでの速度指令）
+    vJoystick.addEventListener('mousemove', (event) => {
+        const rect = vJoystick.getBoundingClientRect();
+        const y = event.clientY - rect.top - rect.height / 2;
+        v = Math.max(-1, Math.min(1, -y / (rect.height / 2))) * 1000;  // mm/sにスケーリング
+        vStick.style.transform = `translateY(${y}px)`;
+        sendDataToWebSocket();
+    });
+
+    // WebSocket接続の設定
+    const ws = new WebSocket('ws://192.168.0.103:8080/ws');  // サーバーのIPとポート
+
+    ws.onopen = function() {
+        console.log('WebSocket connection opened');
+    };
+
+    ws.onmessage = function(event) {
+        console.log('Message from server: ', event.data);
+    };
+
+    ws.onclose = function() {
+        console.log('WebSocket connection closed');
+    };
+
+    // ジョイスティックのデータをWebSocketで送信
+    function sendDataToWebSocket() {
+        if (ws.readyState === WebSocket.OPEN) {
+            const data = `${v},${omega}`;  // mm/s単位の速度
+            ws.send(data);
+            console.log(`Sent data: V=${v}mm/s, Omega=${omega}`);
+        }
+    }
+</script>
