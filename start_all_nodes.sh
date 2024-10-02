@@ -8,7 +8,7 @@ source install/setup.bash
 # Start web_socket_node in a new tab
 gnome-terminal --tab --title="web_socket_node" -- bash -c "source /opt/ros/humble/setup.bash; source install/setup.bash; ros2 run Robowarepkg web_socket_node; exec bash"
 
-# Start controller_node in a new tab
+# Start Robowarenode in a new tab
 gnome-terminal --tab --title="Robowarenode" -- bash -c "source /opt/ros/humble/setup.bash; source install/setup.bash; ros2 run Robowarepkg Robowarenode; exec bash"
 
 # Start serial_read_node in a new tab
