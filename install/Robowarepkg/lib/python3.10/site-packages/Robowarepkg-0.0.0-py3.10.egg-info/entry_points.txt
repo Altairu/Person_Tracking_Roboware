@@ -1,0 +1,5 @@
+[console_scripts]
+Robowarenode = Robowarepkg.Robowarenode:main
+serial_read_node = Robowarepkg.serial_read_node:main
+serial_send_node = Robowarepkg.serial_send_node:main
+
