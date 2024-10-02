@@ -121,6 +121,6 @@
 [1.826s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/altair/Roboware/install/_local_setup_util_sh.py'
 [1.826s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/altair/Roboware/install/setup.sh'
 [1.827s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/altair/Roboware/install/local_setup.bash'
-[1.828s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/altair/Roboware/install/setup.bash'
+[1.828s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/altair/install/setup.bash'
 [1.829s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/altair/Roboware/install/local_setup.zsh'
 [1.829s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/altair/Roboware/install/setup.zsh'

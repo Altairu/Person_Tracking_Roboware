@@ -20,5 +20,7 @@
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info/dependency_links.txt
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info/SOURCES.txt
 /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg/Robowarenode
+/home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg/position_node
 /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg/serial_read_node
 /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg/serial_send_node
+/home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg/web_socket_node

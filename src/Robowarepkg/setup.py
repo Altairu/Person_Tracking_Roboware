@@ -23,6 +23,8 @@ setup(
             'Robowarenode = Robowarepkg.Robowarenode:main',
         'serial_send_node = Robowarepkg.serial_send_node:main',
         'serial_read_node = Robowarepkg.serial_read_node:main',
+        'web_socket_node = Robowarepkg.web_socket_node:main',
+        'position_node = Robowarepkg.position_node:main',
         ],
     },
 )
