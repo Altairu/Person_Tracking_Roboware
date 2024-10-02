@@ -1,6 +1,3 @@
-了解や！`Robowarepkg`のREADMEを詳しく作成して、システムの解説、通信の詳細や`rqt`の使い方も含めた内容を盛り込むわ。以下が、その内容やで。
-
----
 
 # Robowarepkg - README
 
