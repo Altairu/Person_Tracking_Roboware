@@ -60,6 +60,8 @@
     <script>
         let omega = 0;  // オメガの値
         let v = 0;      // Vの値（mm/s）
+        let isSending = false;  // データ送信中かどうかのフラグ
+        let sendInterval;       // データ送信の間隔タイマー
 
         // WebSocket接続の設定
         const ws = new WebSocket('ws://192.168.137.216:8080/ws');  // サーバーのIPとポート
@@ -80,7 +82,7 @@
             console.log('WebSocket connection closed');
         };
 
-        // ジョイスティックのデータをWebSocketで送信
+        // データ送信関数
         function sendDataToWebSocket() {
             if (ws.readyState === WebSocket.OPEN) {
                 const data = `${v},${omega}`;  // mm/s単位の速度
@@ -91,30 +93,65 @@
             }
         }
 
+        // データを連続的に送信するための関数
+        function startSendingData() {
+            if (!isSending) {
+                isSending = true;
+                sendInterval = setInterval(sendDataToWebSocket, 100);  // 100ミリ秒ごとにデータを送信
+            }
+        }
+
+        // データ送信を停止し、V=0, ω=0を送り続ける
+        function stopSendingData() {
+            clearInterval(sendInterval);
+            isSending = false;
+            v = 0;
+            omega = 0;
+            sendDataToWebSocket();  // 停止時もすぐにデータを送信
+            startSendingData();     // V=0, ω=0を送り続ける
+        }
+
         // 十字キーのクリックイベントを設定
-        document.getElementById('up-button').addEventListener('click', () => {
+        document.getElementById('up-button').addEventListener('mousedown', () => {
             v = 100;    // 前進する速度
             omega = 0;  // 回転なし
-            sendDataToWebSocket();
+            startSendingData();
         });
 
-        document.getElementById('down-button').addEventListener('click', () => {
+        document.getElementById('down-button').addEventListener('mousedown', () => {
             v = -100;   // 後退する速度
             omega = 0;  // 回転なし
-            sendDataToWebSocket();
+            startSendingData();
         });
 
-        document.getElementById('left-button').addEventListener('click', () => {
+        document.getElementById('left-button').addEventListener('mousedown', () => {
             v = 0;      // 速度なし
             omega = -5; // 左回転
-            sendDataToWebSocket();
+            startSendingData();
         });
 
-        document.getElementById('right-button').addEventListener('click', () => {
+        document.getElementById('right-button').addEventListener('mousedown', () => {
             v = 0;      // 速度なし
             omega = 5;  // 右回転
-            sendDataToWebSocket();
+            startSendingData();
         });
+
+        // ボタンが離されたときのイベント設定
+        document.getElementById('up-button').addEventListener('mouseup', stopSendingData);
+        document.getElementById('down-button').addEventListener('mouseup', stopSendingData);
+        document.getElementById('left-button').addEventListener('mouseup', stopSendingData);
+        document.getElementById('right-button').addEventListener('mouseup', stopSendingData);
+
+        // タッチデバイス対応のためのイベント設定
+        document.getElementById('up-button').addEventListener('touchstart', (e) => { e.preventDefault(); v = 100; omega = 0; startSendingData(); });
+        document.getElementById('down-button').addEventListener('touchstart', (e) => { e.preventDefault(); v = -100; omega = 0; startSendingData(); });
+        document.getElementById('left-button').addEventListener('touchstart', (e) => { e.preventDefault(); v = 0; omega = -5; startSendingData(); });
+        document.getElementById('right-button').addEventListener('touchstart', (e) => { e.preventDefault(); v = 0; omega = 5; startSendingData(); });
+
+        document.getElementById('up-button').addEventListener('touchend', stopSendingData);
+        document.getElementById('down-button').addEventListener('touchend', stopSendingData);
+        document.getElementById('left-button').addEventListener('touchend', stopSendingData);
+        document.getElementById('right-button').addEventListener('touchend', stopSendingData);
     </script>
 
 </body>
