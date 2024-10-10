@@ -1,52 +1,187 @@
-<script>
-    const omegaStick = document.getElementById('omega-stick');
-    const vStick = document.getElementById('v-stick');
-
-    const omegaJoystick = document.getElementById('omega-joystick');
-    const vJoystick = document.getElementById('v-joystick');
-
-    let omega = 0;  // オメガの値
-    let v = 0;      // Vの値（mm/s）
-
-    // オメガ用のジョイスティック（X軸のみ）
-    omegaJoystick.addEventListener('mousemove', (event) => {
-        const rect = omegaJoystick.getBoundingClientRect();
-        const x = event.clientX - rect.left - rect.width / 2;
-        omega = Math.max(-1, Math.min(1, x / (rect.width / 2)));
-        omegaStick.style.transform = `translateX(${x}px)`;
-        sendDataToWebSocket();
-    });
-
-    // V用のジョイスティック（Y軸のみ、mm/sでの速度指令）
-    vJoystick.addEventListener('mousemove', (event) => {
-        const rect = vJoystick.getBoundingClientRect();
-        const y = event.clientY - rect.top - rect.height / 2;
-        v = Math.max(-1, Math.min(1, -y / (rect.height / 2))) * 1000;  // mm/sにスケーリング
-        vStick.style.transform = `translateY(${y}px)`;
-        sendDataToWebSocket();
-    });
-
-    // WebSocket接続の設定
-    const ws = new WebSocket('ws://192.168.104.216:8080/ws');  // サーバーのIPとポート
-
-    ws.onopen = function() {
-        console.log('WebSocket connection opened');
-    };
-
-    ws.onmessage = function(event) {
-        console.log('Message from server: ', event.data);
-    };
-
-    ws.onclose = function() {
-        console.log('WebSocket connection closed');
-    };
-
-    // ジョイスティックのデータをWebSocketで送信
-    function sendDataToWebSocket() {
-        if (ws.readyState === WebSocket.OPEN) {
-            const data = `${v},${omega}`;  // mm/s単位の速度
-            ws.send(data);
-            console.log(`Sent data: V=${v}mm/s, Omega=${omega}`);
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ロボットコントローラー</title>
+    <style>
+        /* ジョイスティックエリアのスタイル */
+        .joystick-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
         }
-    }
-</script>
+
+        .joystick {
+            width: 150px;
+            height: 150px;
+            background-color: #e0e0e0;
+            border: 2px solid #0015ff;
+            border-radius: 50%;
+            position: relative;
+            touch-action: none; /* タッチイベントのデフォルト動作を無効化 */
+        }
+
+        .stick {
+            width: 30px;
+            height: 30px;
+            background-color: #0040ffb7;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 十字キーエリアのスタイル */
+        .dpad-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .dpad-row {
+            display: flex;
+        }
+
+        .dpad-button {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            background-color: #e0e0e0;
+            border: 2px solid #333;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 18px;
+            user-select: none; /* テキスト選択を無効化 */
+        }
+
+        .dpad-button:active {
+            background-color: #00a2ff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ロボットコントローラー</h1>
+
+    <!-- ジョイスティック部分 -->
+    <div class="joystick-container">
+        <div id="omega-joystick" class="joystick">
+            <div id="omega-stick" class="stick"></div>
+        </div>
+        <div id="v-joystick" class="joystick">
+            <div id="v-stick" class="stick"></div>
+        </div>
+    </div>
+
+    <!-- 十字キー部分 -->
+    <div class="dpad-container">
+        <div class="dpad-row">
+            <div class="dpad-button" id="up-button">前</div>
+        </div>
+        <div class="dpad-row">
+            <div class="dpad-button" id="left-button">左</div>
+            <div class="dpad-button">•</div> <!-- 中央の固定ボタン -->
+            <div class="dpad-button" id="right-button">右</div>
+        </div>
+        <div class="dpad-row">
+            <div class="dpad-button" id="down-button">後</div>
+        </div>
+    </div>
+
+    <script>
+        const omegaStick = document.getElementById('omega-stick');
+        const vStick = document.getElementById('v-stick');
+
+        const omegaJoystick = document.getElementById('omega-joystick');
+        const vJoystick = document.getElementById('v-joystick');
+
+        let omega = 0;  // オメガの値
+        let v = 0;      // Vの値（mm/s）
+
+        // オメガ用のジョイスティック（X軸のみ）
+        omegaJoystick.addEventListener('touchmove', (event) => {
+            event.preventDefault();  // スクロールを防止
+            const touch = event.touches[0];  // 最初のタッチポイントを取得
+            const rect = omegaJoystick.getBoundingClientRect();
+            const x = touch.clientX - rect.left - rect.width / 2;
+            omega = Math.max(-1, Math.min(1, x / (rect.width / 2)));
+            omegaStick.style.transform = `translateX(${x}px)`;
+            sendDataToWebSocket();
+        });
+
+        // V用のジョイスティック（Y軸のみ、mm/sでの速度指令）
+        vJoystick.addEventListener('touchmove', (event) => {
+            event.preventDefault();  // スクロールを防止
+            const touch = event.touches[0];  // 最初のタッチポイントを取得
+            const rect = vJoystick.getBoundingClientRect();
+            const y = touch.clientY - rect.top - rect.height / 2;
+            v = Math.max(-1, Math.min(1, -y / (rect.height / 2))) * 1000;  // mm/sにスケーリング
+            vStick.style.transform = `translateY(${y}px)`;
+            sendDataToWebSocket();
+        });
+
+        // WebSocket接続の設定
+        const ws = new WebSocket('ws://192.168.0.103:8080/ws');  // サーバーのIPとポート
+
+        ws.onopen = function() {
+            console.log('WebSocket connection opened');
+        };
+
+        ws.onmessage = function(event) {
+            console.log('Message from server: ', event.data);
+        };
+
+        ws.onerror = function(error) {
+            console.error('WebSocket Error: ', error);
+        };
+
+        ws.onclose = function() {
+            console.log('WebSocket connection closed');
+        };
+
+        // ジョイスティックのデータをWebSocketで送信
+        function sendDataToWebSocket() {
+            if (ws.readyState === WebSocket.OPEN) {
+                const data = `${v},${omega}`;  // mm/s単位の速度
+                ws.send(data);
+                console.log(`Sent data: V=${v}mm/s, Omega=${omega}`);
+            } else {
+                console.warn('WebSocket is not open. Cannot send data.');
+            }
+        }
+
+        // 十字キーのクリックイベントを設定
+        document.getElementById('up-button').addEventListener('click', () => {
+            v = 100;    // 前進する速度
+            omega = 0;  // 回転なし
+            sendDataToWebSocket();
+        });
+
+        document.getElementById('down-button').addEventListener('click', () => {
+            v = -100;   // 後退する速度
+            omega = 0;  // 回転なし
+            sendDataToWebSocket();
+        });
+
+        document.getElementById('left-button').addEventListener('click', () => {
+            v = 0;      // 速度なし
+            omega = -5; // 左回転
+            sendDataToWebSocket();
+        });
+
+        document.getElementById('right-button').addEventListener('click', () => {
+            v = 0;      // 速度なし
+            omega = 5;  // 右回転
+            sendDataToWebSocket();
+        });
+    </script>
+
+</body>
+</html>
