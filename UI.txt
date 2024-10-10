@@ -5,34 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ロボットコントローラー</title>
     <style>
-        /* ジョイスティックエリアのスタイル */
-        .joystick-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px;
-        }
-
-        .joystick {
-            width: 150px;
-            height: 150px;
-            background-color: #e0e0e0;
-            border: 2px solid #0015ff;
-            border-radius: 50%;
-            position: relative;
-            touch-action: none; /* タッチイベントのデフォルト動作を無効化 */
-        }
-
-        .stick {
-            width: 30px;
-            height: 30px;
-            background-color: #0040ffb7;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
         /* 十字キーエリアのスタイル */
         .dpad-container {
             display: flex;
@@ -70,16 +42,6 @@
 
     <h1>ロボットコントローラー</h1>
 
-    <!-- ジョイスティック部分 -->
-    <div class="joystick-container">
-        <div id="omega-joystick" class="joystick">
-            <div id="omega-stick" class="stick"></div>
-        </div>
-        <div id="v-joystick" class="joystick">
-            <div id="v-stick" class="stick"></div>
-        </div>
-    </div>
-
     <!-- 十字キー部分 -->
     <div class="dpad-container">
         <div class="dpad-row">
@@ -96,36 +58,8 @@
     </div>
 
     <script>
-        const omegaStick = document.getElementById('omega-stick');
-        const vStick = document.getElementById('v-stick');
-
-        const omegaJoystick = document.getElementById('omega-joystick');
-        const vJoystick = document.getElementById('v-joystick');
-
         let omega = 0;  // オメガの値
         let v = 0;      // Vの値（mm/s）
-
-        // オメガ用のジョイスティック（X軸のみ）
-        omegaJoystick.addEventListener('touchmove', (event) => {
-            event.preventDefault();  // スクロールを防止
-            const touch = event.touches[0];  // 最初のタッチポイントを取得
-            const rect = omegaJoystick.getBoundingClientRect();
-            const x = touch.clientX - rect.left - rect.width / 2;
-            omega = Math.max(-1, Math.min(1, x / (rect.width / 2)));
-            omegaStick.style.transform = `translateX(${x}px)`;
-            sendDataToWebSocket();
-        });
-
-        // V用のジョイスティック（Y軸のみ、mm/sでの速度指令）
-        vJoystick.addEventListener('touchmove', (event) => {
-            event.preventDefault();  // スクロールを防止
-            const touch = event.touches[0];  // 最初のタッチポイントを取得
-            const rect = vJoystick.getBoundingClientRect();
-            const y = touch.clientY - rect.top - rect.height / 2;
-            v = Math.max(-1, Math.min(1, -y / (rect.height / 2))) * 1000;  // mm/sにスケーリング
-            vStick.style.transform = `translateY(${y}px)`;
-            sendDataToWebSocket();
-        });
 
         // WebSocket接続の設定
         const ws = new WebSocket('ws://192.168.137.216:8080/ws');  // サーバーのIPとポート
