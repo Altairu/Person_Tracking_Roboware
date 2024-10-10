@@ -8,7 +8,7 @@ import uvicorn
 import os
 
 # IPアドレスとポートの指定
-ipadress_ = '192.168.104.216'
+ipadress_ = '192.168.137.216'
 port_ = 8080
 
 # HTMLファイルのパスを指定
