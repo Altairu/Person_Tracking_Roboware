@@ -27,7 +27,7 @@
     });
 
     // WebSocket接続の設定
-    const ws = new WebSocket('ws://192.168.0.103:8080/ws');  // サーバーのIPとポート
+    const ws = new WebSocket('ws://192.168.104.216:8080/ws');  // サーバーのIPとポート
 
     ws.onopen = function() {
         console.log('WebSocket connection opened');
