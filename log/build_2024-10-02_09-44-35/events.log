@@ -30,7 +30,7 @@
 [1.132539] (Robowarepkg) StdoutLine: {'line': b"removing '/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info' (and everything under it)\n"}
 [1.132877] (Robowarepkg) StdoutLine: {'line': b'Copying ../../build/Robowarepkg/Robowarepkg.egg-info to /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info\n'}
 [1.133684] (Robowarepkg) StdoutLine: {'line': b'running install_scripts\n'}
-[1.150442] (Robowarepkg) StdoutLine: {'line': b'Installing Robowarenode script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
+[1.150442] (Robowarepkg) StdoutLine: {'line': b'Installing Roboware_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
 [1.150726] (Robowarepkg) StdoutLine: {'line': b'Installing serial_read_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
 [1.150835] (Robowarepkg) StdoutLine: {'line': b'Installing serial_send_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
 [1.151030] (Robowarepkg) StdoutLine: {'line': b"writing list of installed files to '/home/altair/Roboware/build/Robowarepkg/install.log'\n"}

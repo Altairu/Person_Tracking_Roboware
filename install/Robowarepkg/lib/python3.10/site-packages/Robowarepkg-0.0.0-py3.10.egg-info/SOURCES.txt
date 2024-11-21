@@ -8,9 +8,10 @@ setup.py
 ../../build/Robowarepkg/Robowarepkg.egg-info/requires.txt
 ../../build/Robowarepkg/Robowarepkg.egg-info/top_level.txt
 ../../build/Robowarepkg/Robowarepkg.egg-info/zip-safe
-Robowarepkg/Robowarenode.py
+Robowarepkg/PID_node.py
+Robowarepkg/RealSense_node.py
+Robowarepkg/Roboware_node.py
 Robowarepkg/__init__.py
-Robowarepkg/position_node.py
 Robowarepkg/serial_read_node.py
 Robowarepkg/serial_send_node.py
 Robowarepkg/web_socket_node.py

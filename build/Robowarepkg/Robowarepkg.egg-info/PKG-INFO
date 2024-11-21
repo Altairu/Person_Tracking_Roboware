@@ -5,3 +5,4 @@ Summary: TODO: Package description
 Maintainer: altair
 Maintainer-email: Altairu@github.comu
 License: TODO: License declaration
+Requires-Dist: setuptools

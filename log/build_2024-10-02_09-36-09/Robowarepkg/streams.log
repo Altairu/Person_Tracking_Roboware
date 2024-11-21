@@ -15,7 +15,7 @@
 [1.286s] creating /home/altair/Roboware/build/Robowarepkg/build/lib
 [1.286s] creating /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
 [1.286s] copying Robowarepkg/serial_read_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
-[1.286s] copying Robowarepkg/Robowarenode.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.286s] copying Robowarepkg/Roboware_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
 [1.286s] copying Robowarepkg/position_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
 [1.286s] copying Robowarepkg/serial_send_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
 [1.286s] copying Robowarepkg/web_socket_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
@@ -24,13 +24,13 @@
 [1.287s] running install_lib
 [1.287s] creating /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
 [1.288s] copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/serial_read_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
-[1.288s] copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/Robowarenode.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
+[1.288s] copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/Roboware_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
 [1.288s] copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/position_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
 [1.288s] copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/serial_send_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
 [1.288s] copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/web_socket_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
 [1.288s] copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/__init__.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
 [1.288s] byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/serial_read_node.py to serial_read_node.cpython-310.pyc
-[1.289s] byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/Robowarenode.py to Robowarenode.cpython-310.pyc
+[1.289s] byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/Roboware_node.py to Roboware_node.cpython-310.pyc
 [1.289s] byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/position_node.py to position_node.cpython-310.pyc
 [1.290s] byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/serial_send_node.py to serial_send_node.cpython-310.pyc
 [1.290s] byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/web_socket_node.py to web_socket_node.cpython-310.pyc
@@ -44,7 +44,7 @@
 [1.291s] running install_egg_info
 [1.292s] Copying ../../build/Robowarepkg/Robowarepkg.egg-info to /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info
 [1.293s] running install_scripts
-[1.309s] Installing Robowarenode script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+[1.309s] Installing Roboware_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
 [1.310s] Installing serial_read_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
 [1.310s] Installing serial_send_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
 [1.310s] writing list of installed files to '/home/altair/Roboware/build/Robowarepkg/install.log'

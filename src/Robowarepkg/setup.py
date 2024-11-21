@@ -20,11 +20,12 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'Robowarenode = Robowarepkg.Robowarenode:main',
+            'Roboware_node = Robowarepkg.Roboware_node:main',
         'serial_send_node = Robowarepkg.serial_send_node:main',
         'serial_read_node = Robowarepkg.serial_read_node:main',
         'web_socket_node = Robowarepkg.web_socket_node:main',
-        'position_node = Robowarepkg.position_node:main',
+        'RealSense_node = Robowarepkg.RealSense_node:main',
+        'PID_node = Robowarepkg.PID_node:main',
         ],
     },
 )

@@ -16,7 +16,7 @@
 [1.151s] removing '/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info' (and everything under it)
 [1.152s] Copying ../../build/Robowarepkg/Robowarepkg.egg-info to /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info
 [1.152s] running install_scripts
-[1.169s] Installing Robowarenode script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+[1.169s] Installing Roboware_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
 [1.169s] Installing serial_read_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
 [1.169s] Installing serial_send_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
 [1.169s] writing list of installed files to '/home/altair/Roboware/build/Robowarepkg/install.log'

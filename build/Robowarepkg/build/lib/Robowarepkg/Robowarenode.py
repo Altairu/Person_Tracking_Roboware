@@ -3,7 +3,7 @@ from rclpy.node import Node
 from std_msgs.msg import Float32MultiArray, String
 import math
 
-class RobowareNode(Node):
+class Roboware_node(Node):
     def __init__(self):
         super().__init__('roboware_node')
         self.pub = self.create_publisher(Float32MultiArray, 'wheel_rps', 10)
@@ -31,7 +31,7 @@ class RobowareNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = RobowareNode()
+    node = Roboware_node()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()

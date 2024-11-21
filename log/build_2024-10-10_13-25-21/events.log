@@ -48,7 +48,7 @@
 [2.711770] (-) TimerEvent: {}
 [2.812037] (-) TimerEvent: {}
 [2.912305] (-) TimerEvent: {}
-[2.919595] (Robowarepkg) StdoutLine: {'line': b'Installing Robowarenode script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
+[2.919595] (Robowarepkg) StdoutLine: {'line': b'Installing Roboware_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
 [2.919858] (Robowarepkg) StdoutLine: {'line': b'Installing position_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
 [2.920040] (Robowarepkg) StdoutLine: {'line': b'Installing serial_read_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
 [2.920145] (Robowarepkg) StdoutLine: {'line': b'Installing serial_send_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}

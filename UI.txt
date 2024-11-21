@@ -1,158 +1,75 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ロボットコントローラー</title>
+    <title>Roboware Controller</title>
     <style>
-        /* 十字キーエリアのスタイル */
-        .dpad-container {
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #joystick {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 300px;
-            width: 300px;
-            margin: 0 auto;
+            margin-top: 20px;
         }
-
-        .dpad-row {
-            display: flex;
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
-        .dpad-button {
-            width: 80px;
-            height: 80px;
-            margin: 5px;
-            background-color: #e0e0e0;
-            border: 2px solid #333;
-            border-radius: 10px;
-            text-align: center;
-            line-height: 80px;
-            font-size: 18px;
-            user-select: none; /* テキスト選択を無効化 */
+        .mode-toggle {
+            background-color: #007BFF;
+            color: white;
         }
-
-        .dpad-button:active {
-            background-color: #00a2ff;
+        .mode-toggle.active {
+            background-color: #28A745;
+        }
+        .direction-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-
-    <h1>ロボットコントローラー</h1>
-
-    <!-- 十字キー部分 -->
-    <div class="dpad-container">
-        <div class="dpad-row">
-            <div class="dpad-button" id="up-button">前</div>
-        </div>
-        <div class="dpad-row">
-            <div class="dpad-button" id="left-button">左</div>
-            <div class="dpad-button">•</div> <!-- 中央の固定ボタン -->
-            <div class="dpad-button" id="right-button">右</div>
-        </div>
-        <div class="dpad-row">
-            <div class="dpad-button" id="down-button">後</div>
+    <h1>Roboware Controller</h1>
+    <div id="joystick">
+        <button class="button mode-toggle" id="mode-button">Switch to Follow Mode</button>
+        <div class="direction-buttons">
+            <button class="button" data-direction="FORWARD">↑ Forward</button>
+            <button class="button" data-direction="STOP">⏹ Stop</button>
+            <button class="button" data-direction="BACKWARD">↓ Backward</button>
+            <button class="button" data-direction="LEFT">← Left</button>
+            <button class="button" data-direction="RIGHT">→ Right</button>
         </div>
     </div>
-
     <script>
-        let omega = 0;  // オメガの値
-        let v = 0;      // Vの値（mm/s）
-        let isSending = false;  // データ送信中かどうかのフラグ
-        let sendInterval;       // データ送信の間隔タイマー
+        const ws = new WebSocket("ws://192.168.2.212:8080/ws");
+        const modeButton = document.getElementById("mode-button");
 
-        // WebSocket接続の設定
-        const ws = new WebSocket('ws://192.168.137.216:8080/ws');  // サーバーのIPとポート
+        let currentMode = "CONTROL"; // 初期モード
 
-        ws.onopen = function() {
-            console.log('WebSocket connection opened');
-        };
-
-        ws.onmessage = function(event) {
-            console.log('Message from server: ', event.data);
-        };
-
-        ws.onerror = function(error) {
-            console.error('WebSocket Error: ', error);
-        };
-
-        ws.onclose = function() {
-            console.log('WebSocket connection closed');
-        };
-
-        // データ送信関数
-        function sendDataToWebSocket() {
-            if (ws.readyState === WebSocket.OPEN) {
-                const data = `${v},${omega}`;  // mm/s単位の速度
-                ws.send(data);
-                console.log(`Sent data: V=${v}mm/s, Omega=${omega}`);
-            } else {
-                console.warn('WebSocket is not open. Cannot send data.');
-            }
-        }
-
-        // データを連続的に送信するための関数
-        function startSendingData() {
-            if (!isSending) {
-                isSending = true;
-                sendInterval = setInterval(sendDataToWebSocket, 100);  // 100ミリ秒ごとにデータを送信
-            }
-        }
-
-        // データ送信を停止し、V=0, ω=0を送り続ける
-        function stopSendingData() {
-            clearInterval(sendInterval);
-            isSending = false;
-            v = 0;
-            omega = 0;
-            sendDataToWebSocket();  // 停止時もすぐにデータを送信
-            startSendingData();     // V=0, ω=0を送り続ける
-        }
-
-        // 十字キーのクリックイベントを設定
-        document.getElementById('up-button').addEventListener('mousedown', () => {
-            v = 100;    // 前進する速度
-            omega = 0;  // 回転なし
-            startSendingData();
+        modeButton.addEventListener("click", () => {
+            currentMode = currentMode === "CONTROL" ? "FOLLOW" : "CONTROL";
+            modeButton.textContent = currentMode === "CONTROL" ? "Switch to Follow Mode" : "Switch to Control Mode";
+            ws.send(currentMode);
         });
 
-        document.getElementById('down-button').addEventListener('mousedown', () => {
-            v = -100;   // 後退する速度
-            omega = 0;  // 回転なし
-            startSendingData();
+        document.querySelectorAll(".direction-buttons .button").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const direction = btn.getAttribute("data-direction");
+                ws.send(direction);
+            });
         });
 
-        document.getElementById('left-button').addEventListener('mousedown', () => {
-            v = 0;      // 速度なし
-            omega = -5; // 左回転
-            startSendingData();
-        });
-
-        document.getElementById('right-button').addEventListener('mousedown', () => {
-            v = 0;      // 速度なし
-            omega = 5;  // 右回転
-            startSendingData();
-        });
-
-        // ボタンが離されたときのイベント設定
-        document.getElementById('up-button').addEventListener('mouseup', stopSendingData);
-        document.getElementById('down-button').addEventListener('mouseup', stopSendingData);
-        document.getElementById('left-button').addEventListener('mouseup', stopSendingData);
-        document.getElementById('right-button').addEventListener('mouseup', stopSendingData);
-
-        // タッチデバイス対応のためのイベント設定
-        document.getElementById('up-button').addEventListener('touchstart', (e) => { e.preventDefault(); v = 100; omega = 0; startSendingData(); });
-        document.getElementById('down-button').addEventListener('touchstart', (e) => { e.preventDefault(); v = -100; omega = 0; startSendingData(); });
-        document.getElementById('left-button').addEventListener('touchstart', (e) => { e.preventDefault(); v = 0; omega = -5; startSendingData(); });
-        document.getElementById('right-button').addEventListener('touchstart', (e) => { e.preventDefault(); v = 0; omega = 5; startSendingData(); });
-
-        document.getElementById('up-button').addEventListener('touchend', stopSendingData);
-        document.getElementById('down-button').addEventListener('touchend', stopSendingData);
-        document.getElementById('left-button').addEventListener('touchend', stopSendingData);
-        document.getElementById('right-button').addEventListener('touchend', stopSendingData);
+        ws.onmessage = event => {
+            console.log("Received from server:", event.data);
+        };
     </script>
-
 </body>
 </html>

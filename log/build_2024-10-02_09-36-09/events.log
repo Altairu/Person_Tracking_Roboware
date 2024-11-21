@@ -30,7 +30,7 @@
 [1.286144] (Robowarepkg) StdoutLine: {'line': b'creating /home/altair/Roboware/build/Robowarepkg/build/lib\n'}
 [1.286248] (Robowarepkg) StdoutLine: {'line': b'creating /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
 [1.286290] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/serial_read_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
-[1.286333] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/Robowarenode.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.286333] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/Roboware_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
 [1.286402] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/position_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
 [1.286446] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/serial_send_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
 [1.286488] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/web_socket_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
@@ -39,13 +39,13 @@
 [1.286859] (Robowarepkg) StdoutLine: {'line': b'running install_lib\n'}
 [1.287589] (Robowarepkg) StdoutLine: {'line': b'creating /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg\n'}
 [1.287698] (Robowarepkg) StdoutLine: {'line': b'copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/serial_read_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg\n'}
-[1.287791] (Robowarepkg) StdoutLine: {'line': b'copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/Robowarenode.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg\n'}
+[1.287791] (Robowarepkg) StdoutLine: {'line': b'copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/Roboware_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg\n'}
 [1.287862] (Robowarepkg) StdoutLine: {'line': b'copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/position_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg\n'}
 [1.287938] (Robowarepkg) StdoutLine: {'line': b'copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/serial_send_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg\n'}
 [1.288013] (Robowarepkg) StdoutLine: {'line': b'copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/web_socket_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg\n'}
 [1.288098] (Robowarepkg) StdoutLine: {'line': b'copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/__init__.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg\n'}
 [1.288458] (Robowarepkg) StdoutLine: {'line': b'byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/serial_read_node.py to serial_read_node.cpython-310.pyc\n'}
-[1.288972] (Robowarepkg) StdoutLine: {'line': b'byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/Robowarenode.py to Robowarenode.cpython-310.pyc\n'}
+[1.288972] (Robowarepkg) StdoutLine: {'line': b'byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/Roboware_node.py to Roboware_node.cpython-310.pyc\n'}
 [1.289338] (Robowarepkg) StdoutLine: {'line': b'byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/position_node.py to position_node.cpython-310.pyc\n'}
 [1.289681] (Robowarepkg) StdoutLine: {'line': b'byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/serial_send_node.py to serial_send_node.cpython-310.pyc\n'}
 [1.289960] (Robowarepkg) StdoutLine: {'line': b'byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/web_socket_node.py to web_socket_node.cpython-310.pyc\n'}
@@ -60,7 +60,7 @@
 [1.292379] (Robowarepkg) StdoutLine: {'line': b'Copying ../../build/Robowarepkg/Robowarepkg.egg-info to /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info\n'}
 [1.293127] (Robowarepkg) StdoutLine: {'line': b'running install_scripts\n'}
 [1.303989] (-) TimerEvent: {}
-[1.309379] (Robowarepkg) StdoutLine: {'line': b'Installing Robowarenode script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
+[1.309379] (Robowarepkg) StdoutLine: {'line': b'Installing Roboware_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
 [1.309691] (Robowarepkg) StdoutLine: {'line': b'Installing serial_read_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
 [1.309853] (Robowarepkg) StdoutLine: {'line': b'Installing serial_send_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
 [1.310109] (Robowarepkg) StdoutLine: {'line': b"writing list of installed files to '/home/altair/Roboware/build/Robowarepkg/install.log'\n"}
