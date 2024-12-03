@@ -9,12 +9,23 @@ class RobowareNode(Node):
             String,
             'web_socket_pub',
             self.listener_callback,
-            10)
+            10
+        )
+        self.position_subscription = self.create_subscription(
+            Float32MultiArray,
+            'estimated_position',
+            self.position_callback,
+            10
+        )
         self.publisher = self.create_publisher(Float32MultiArray, 'wheel_targets', 10)
 
         self.mode = 0  # Initial mode (Control: 0, Follow: 1)
         self.target_right = 0.0
         self.target_left = 0.0
+        self.person_distance = 0.0
+        self.person_offset = 0.0
+        self.kp_v = 10.0  # Proportional gain for velocity
+        self.kp_omega = 80.0  # Proportional gain for angular velocity
 
     def listener_callback(self, msg):
         try:
@@ -31,22 +42,42 @@ class RobowareNode(Node):
                 self.target_left = 0.0
                 self.get_logger().info("Emergency stop activated.")
             elif self.mode == 0:  # Control Mode
-                V = float((int(ry) - 106)*100)
-                omega = float(-1*(int(lx) - 102) *50)
+                V = float((int(ry) - 106) * 100)
+                omega = float(-1 * (int(lx) - 102) * 50)
                 self.target_right = V + omega
                 self.target_left = V - omega
                 self.get_logger().info(f"Control mode | V={V}, Omega={omega} | Target Right={self.target_right}, Left={self.target_left}")
             elif self.mode == 1:  # Follow Mode
-                # Placeholder for Follow mode implementation
-                self.target_right = 0.0
-                self.target_left = 0.0
-                self.get_logger().info("Follow mode is not yet implemented.")
+                self.follow_person()
 
             # Publish the wheel targets
             self.publish_targets()
 
         except ValueError as e:
             self.get_logger().error(f"Error parsing message: {e}")
+
+    def position_callback(self, msg):
+        if len(msg.data) == 2:  # Assuming message contains [distance, offset]
+            self.person_distance = msg.data[0]
+            self.person_offset = msg.data[1]
+            self.get_logger().info(f"Updated position: Distance={self.person_distance}, Offset={self.person_offset}")
+        else:
+            self.get_logger().warn("Invalid position data received.")
+
+    def follow_person(self):
+        # Proportional control for velocity and angular velocity
+        V = self.kp_v * self.person_distance
+        omega = self.kp_omega * self.person_offset
+
+        # Clamp the values to maximum limits
+        V = max(min(V, 10000.0), -10000.0)  # Max forward/backward velocity
+        omega = max(min(omega, 8000.0), -8000.0)  # Max rotational velocity
+
+        # Calculate target velocities for left and right wheels
+        self.target_right = V + omega
+        self.target_left = V - omega
+
+        self.get_logger().info(f"Follow mode | Distance={self.person_distance}, Offset={self.person_offset} | V={V}, Omega={omega} | Target Right={self.target_right}, Left={self.target_left}")
 
     def publish_targets(self):
         msg = Float32MultiArray()

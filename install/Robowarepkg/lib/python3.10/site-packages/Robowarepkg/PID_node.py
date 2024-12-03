@@ -34,8 +34,8 @@ class PIDNode(Node):
         self.create_subscription(Float32MultiArray, 'wheel_feedback', self.feedback_callback, 10)
         self.pub = self.create_publisher(Float32MultiArray, 'wheel_controls', 10)
 
-        self.pid_right = PIDController(kp=0.003, ki=0.01, kd=0.0)
-        self.pid_left = PIDController(kp=0.003, ki=0.01, kd=0.0)
+        self.pid_right = PIDController(kp=0.001, ki=0.01, kd=0.0)
+        self.pid_left = PIDController(kp=0.001, ki=0.01, kd=0.0)
 
         self.target_right = 0.0
         self.target_left = 0.0
