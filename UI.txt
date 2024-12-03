@@ -1,75 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Roboware Controller</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Control</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
-        #joystick {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
+        .container {
+            padding: 20px;
         }
         .button {
+            width: 200px;
+            height: 50px;
             margin: 10px;
-            padding: 10px 20px;
             font-size: 16px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .mode-toggle {
-            background-color: #007BFF;
+            font-weight: bold;
+            background-color: #007bff;
             color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-        .mode-toggle.active {
-            background-color: #28A745;
+        .button:active {
+            background-color: #0056b3;
         }
-        .direction-buttons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5px;
+        .toggle-button {
+            width: 200px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 20px auto;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .toggle-button.active {
+            background-color: #4caf50;
+        }
+        .status {
             margin-top: 20px;
+            font-size: 18px;
+        }
+        .status.connected {
+            color: green;
+        }
+        .status.disconnected {
+            color: red;
         }
     </style>
 </head>
 <body>
-    <h1>Roboware Controller</h1>
-    <div id="joystick">
-        <button class="button mode-toggle" id="mode-button">Switch to Follow Mode</button>
-        <div class="direction-buttons">
-            <button class="button" data-direction="FORWARD">↑ Forward</button>
-            <button class="button" data-direction="STOP">⏹ Stop</button>
-            <button class="button" data-direction="BACKWARD">↓ Backward</button>
-            <button class="button" data-direction="LEFT">← Left</button>
-            <button class="button" data-direction="RIGHT">→ Right</button>
-        </div>
+    <div class="container">
+        <h1>Robot Control Panel</h1>
+        <button class="toggle-button" id="modeToggle" onclick="toggleMode()">Mode: Control</button>
+        <div class="status" id="status">Status: Disconnected</div>
     </div>
+
     <script>
-        const ws = new WebSocket("ws://192.168.2.212:8080/ws");
-        const modeButton = document.getElementById("mode-button");
+        let websocket;
+        let currentMode = 0; // Control: 0, Follow: 1
+        let stop = 0; // Emergency stop: 1 = Stop, 0 = Running
+        let lx = 100, ly = 100, rx = 100, ry = 100; // Joystick default values
+        const reconnectInterval = 5000;
 
-        let currentMode = "CONTROL"; // 初期モード
+        function connectWebSocket() {
+            websocket = new WebSocket("ws://192.168.75.212:8080/ws");
 
-        modeButton.addEventListener("click", () => {
-            currentMode = currentMode === "CONTROL" ? "FOLLOW" : "CONTROL";
-            modeButton.textContent = currentMode === "CONTROL" ? "Switch to Follow Mode" : "Switch to Control Mode";
-            ws.send(currentMode);
-        });
+            websocket.onopen = function () {
+                document.getElementById('status').innerText = "Status: Connected";
+                document.getElementById('status').className = "status connected";
+            };
 
-        document.querySelectorAll(".direction-buttons .button").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const direction = btn.getAttribute("data-direction");
-                ws.send(direction);
-            });
-        });
+            websocket.onclose = function () {
+                document.getElementById('status').innerText = "Status: Disconnected";
+                document.getElementById('status').className = "status disconnected";
+                setTimeout(connectWebSocket, reconnectInterval);
+            };
 
-        ws.onmessage = event => {
-            console.log("Received from server:", event.data);
-        };
+            websocket.onerror = function (error) {
+                console.error("WebSocket error:", error);
+            };
+        }
+
+        function toggleMode() {
+            const modeButton = document.getElementById("modeToggle");
+            currentMode = currentMode === 0 ? 1 : 0;
+
+            if (currentMode === 1) {
+                modeButton.innerText = "Mode: Follow";
+                modeButton.classList.add("active");
+            } else {
+                modeButton.innerText = "Mode: Control";
+                modeButton.classList.remove("active");
+            }
+
+            sendCommand();
+        }
+
+        function updateGamepadValues() {
+            const gamepads = navigator.getGamepads();
+            const gamepad = gamepads[0];
+
+            if (gamepad) {
+                lx = gamepad.axes[0] * 100 + 100;
+                ly = gamepad.axes[1] * -100 + 100;
+                rx = gamepad.axes[2] * 100 + 100;
+                ry = gamepad.axes[3] * -100 + 100;
+
+                // Send updated joystick values
+                sendCommand();
+            }
+        }
+
+        function sendCommand() {
+            if (websocket && websocket.readyState === WebSocket.OPEN) {
+                const command = [currentMode, rx, ry, lx, ly, stop];
+                websocket.send(command.join(","));
+            }
+        }
+
+        function setupGamepad() {
+            setInterval(updateGamepadValues, 100);
+        }
+
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        connectWebSocket();
+        setupGamepad();
     </script>
 </body>
 </html>

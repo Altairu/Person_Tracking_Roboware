@@ -101,14 +101,14 @@ pip install fastapi uvicorn pyserial
 ROS 2ワークスペースでパッケージをビルドします。
 
 ```bash
-colcon build --packages-select robowarepkg
+colcon build --packages-select Robowarepkg
 ```
 
 ### 3. 実行
 ROS 2ノードとFastAPIサーバーを実行するために以下のコマンドを実行します。
 
 ```bash
-ros2 run robowarepkg web_socket_node
+ros2 run Robowarepkg web_socket_node
 ```
 
 このコマンドにより、WebSocketサーバーとROS 2ノードが同時に実行されます。
