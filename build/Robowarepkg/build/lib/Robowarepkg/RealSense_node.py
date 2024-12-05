@@ -2,9 +2,9 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32MultiArray
 import pyrealsense2 as rs
-import cv2
 import numpy as np
 import torch
+import cv2
 
 class RealSenseNode(Node):
     def __init__(self):
@@ -19,7 +19,9 @@ class RealSenseNode(Node):
         self.pipeline.start(config)
 
         # YOLOモデルロード
-        self.model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+        self.model = torch.hub.load('/home/altair/Roboware/ultralytics/yolov5', 'custom', 
+                                    path='/home/altair/Roboware/ultralytics/yolov5/yolov5s.pt', 
+                                    source='local')
         self.create_timer(0.1, self.process_frames)
 
     def process_frames(self):
@@ -34,25 +36,32 @@ class RealSenseNode(Node):
             color_image = np.asanyarray(color_frame.get_data())
             results = self.model(color_image)
 
-            for *box, conf, cls in results.xyxy[0]:
-                if int(cls) == 0:  # 人物クラス
+            for result in results.xyxy[0]:  # 検出結果をループ
+                box, conf, cls = result[:4], result[4], int(result[5])
+                if cls == 0:  # クラス0（人物）のみ処理
                     x1, y1, x2, y2 = map(int, box)
                     center_x, center_y = (x1 + x2) // 2, (y1 + y2) // 2
 
                     distance = depth_frame.get_distance(center_x, center_y)
                     offset_x = center_x - (color_image.shape[1] // 2)
 
+                    # Publish camera data
                     msg = Float32MultiArray()
-                    msg.data = [float(distance), float(offset_x)]
+                    msg.data = [distance, float(offset_x)]
                     self.publisher.publish(msg)
 
-                    # デバッグ用表示
+                    self.get_logger().info(f"Published camera data: Distance={distance}, Offset={offset_x}")
+
+                    # 画面に検出結果を描画
                     cv2.rectangle(color_image, (x1, y1), (x2, y2), (0, 255, 0), 2)
                     cv2.putText(color_image, f"Distance: {distance:.2f}m", (x1, y1 - 10),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+                    cv2.putText(color_image, f"Offset: {offset_x}", (x1, y1 - 30),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
                     break
 
-            cv2.imshow('RealSense', color_image)
+            # カメラ映像を表示
+            cv2.imshow("RealSense Detection", color_image)
             cv2.waitKey(1)
 
         except Exception as e:
@@ -60,7 +69,7 @@ class RealSenseNode(Node):
 
     def destroy_node(self):
         self.pipeline.stop()
-        cv2.destroyAllWindows()
+        cv2.destroyAllWindows()  # OpenCVのウィンドウを閉じる
         super().destroy_node()
 
 def main(args=None):
@@ -70,5 +79,5 @@ def main(args=None):
     node.destroy_node()
     rclpy.shutdown()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

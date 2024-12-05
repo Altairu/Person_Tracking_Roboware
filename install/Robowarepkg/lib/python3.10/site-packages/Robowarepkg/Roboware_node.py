@@ -13,7 +13,7 @@ class RobowareNode(Node):
         )
         self.position_subscription = self.create_subscription(
             Float32MultiArray,
-            'estimated_position',
+            'camera_data',
             self.position_callback,
             10
         )
@@ -24,8 +24,9 @@ class RobowareNode(Node):
         self.target_left = 0.0
         self.person_distance = 0.0
         self.person_offset = 0.0
-        self.kp_v = 10.0  # Proportional gain for velocity
-        self.kp_omega = 80.0  # Proportional gain for angular velocity
+        self.kp_v = 2000.0  # Proportional gain for velocity
+        self.kp_omega = 20.0  # Proportional gain for angular velocity
+        self.navigation_constant = 3.0  # Proportional navigation constant (N)
 
     def listener_callback(self, msg):
         try:
@@ -42,8 +43,8 @@ class RobowareNode(Node):
                 self.target_left = 0.0
                 self.get_logger().info("Emergency stop activated.")
             elif self.mode == 0:  # Control Mode
-                V = float((int(ry) - 106) * 100)
-                omega = float(-1 * (int(lx) - 102) * 50)
+                V = float((int(ry) - 106) * 200)
+                omega = float(-1 * (int(lx) - 102) * 100)
                 self.target_right = V + omega
                 self.target_left = V - omega
                 self.get_logger().info(f"Control mode | V={V}, Omega={omega} | Target Right={self.target_right}, Left={self.target_left}")
@@ -65,9 +66,9 @@ class RobowareNode(Node):
             self.get_logger().warn("Invalid position data received.")
 
     def follow_person(self):
-        # Proportional control for velocity and angular velocity
+        # Proportional Navigation Algorithm (PN)
         V = self.kp_v * self.person_distance
-        omega = self.kp_omega * self.person_offset
+        omega = -1*self.navigation_constant * self.kp_omega * self.person_offset / max(self.person_distance, 0.1)
 
         # Clamp the values to maximum limits
         V = max(min(V, 10000.0), -10000.0)  # Max forward/backward velocity
