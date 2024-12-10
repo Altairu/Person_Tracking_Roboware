@@ -11,6 +11,8 @@ setup.py
 Robowarepkg/PID_node.py
 Robowarepkg/RealSense_node.py
 Robowarepkg/Roboware_node.py
+Robowarepkg/Roboware_node_mpn.py
+Robowarepkg/Roboware_node_np.py
 Robowarepkg/__init__.py
 Robowarepkg/serial_read_node.py
 Robowarepkg/serial_send_node.py

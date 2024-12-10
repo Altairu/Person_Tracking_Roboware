@@ -1,0 +1,36 @@
+/home/altair/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:261: UserWarning: Unknown distribution option: 'tests_require'
+  warnings.warn(msg)
+running egg_info
+writing ../../build/Robowarepkg/Robowarepkg.egg-info/PKG-INFO
+writing dependency_links to ../../build/Robowarepkg/Robowarepkg.egg-info/dependency_links.txt
+writing entry points to ../../build/Robowarepkg/Robowarepkg.egg-info/entry_points.txt
+writing requirements to ../../build/Robowarepkg/Robowarepkg.egg-info/requires.txt
+writing top-level names to ../../build/Robowarepkg/Robowarepkg.egg-info/top_level.txt
+reading manifest file '../../build/Robowarepkg/Robowarepkg.egg-info/SOURCES.txt'
+writing manifest file '../../build/Robowarepkg/Robowarepkg.egg-info/SOURCES.txt'
+running build
+running build_py
+copying Robowarepkg/serial_read_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+copying Robowarepkg/PID_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+copying Robowarepkg/serial_send_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+copying Robowarepkg/web_socket_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+copying Robowarepkg/RealSense_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+copying Robowarepkg/__init__.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+running install
+running install_lib
+copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/Roboware_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
+copying /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg/web_socket_node.py -> /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
+byte-compiling /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/web_socket_node.py to web_socket_node.cpython-310.pyc
+running install_data
+copying resource/Robowarepkg -> /home/altair/Roboware/install/Robowarepkg/share/ament_index/resource_index/packages
+running install_egg_info
+removing '/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/Robowarepkg/Robowarepkg.egg-info to /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info
+running install_scripts
+Installing PID_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+Installing RealSense_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+Installing Roboware_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+Installing serial_read_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+Installing serial_send_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+Installing web_socket_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+writing list of installed files to '/home/altair/Roboware/build/Robowarepkg/install.log'

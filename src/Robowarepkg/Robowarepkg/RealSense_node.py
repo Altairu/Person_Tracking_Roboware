@@ -24,6 +24,9 @@ class RealSenseNode(Node):
                                     source='local')
         self.create_timer(0.1, self.process_frames)
 
+        # 直近の有効な距離を保存
+        self.previous_valid_distance = None
+
     def process_frames(self):
         try:
             frames = self.pipeline.wait_for_frames()
@@ -44,6 +47,18 @@ class RealSenseNode(Node):
 
                     distance = depth_frame.get_distance(center_x, center_y)
                     offset_x = center_x - (color_image.shape[1] // 2)
+
+                    # 距離が無効（0.0）なら直近の有効な値を使用
+                    if distance == 0.0:
+                        if self.previous_valid_distance is not None:
+                            distance = self.previous_valid_distance
+                            self.get_logger().warn("Invalid distance detected. Using previous valid value.")
+                        else:
+                            self.get_logger().warn("Invalid distance detected. Skipping frame.")
+                            continue  # 最初のフレームで無効値の場合スキップ
+
+                    # 有効な距離を保存
+                    self.previous_valid_distance = distance
 
                     # Publish camera data
                     msg = Float32MultiArray()
