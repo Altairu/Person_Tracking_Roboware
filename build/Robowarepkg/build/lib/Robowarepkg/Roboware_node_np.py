@@ -27,12 +27,12 @@ class RobowareNode(Node):
         self.target_left = 0.0
         self.person_distance = 0.0
         self.person_offset = 0.0
-        self.kp_v = 50000.0  # Proportional gain for velocity
+        self.kp_v = 5000.0  # Proportional gain for velocity 前50000
         self.kp_omega = 50.0  # Proportional gain for angular velocity
         self.navigation_constant = 2.0  # Proportional navigation constant (N)
 
         # CSVファイルの設定
-        self.csv_file = "robot_follow_data.csv"
+        self.csv_file = "NEW_PN_robot_follow_data.csv"
         self.initialize_csv()
 
         # タイマー設定
@@ -101,8 +101,9 @@ class RobowareNode(Node):
         omega = -1 * (self.navigation_constant) * self.kp_omega * self.person_offset / max((self.person_distance), 1.0)
 
         # Clamp the values to maximum limits
-        V = max(min(V, 10000.0), -10000.0)  # Max forward/backward velocity
-        omega = max(min(omega, 8000.0), -8000.0)  # Max rotational velocity
+        # 前　10000.0~-10000.   8000.0 ~ -8000.0
+        V = max(min(V, 30000.0), -30000.0)  # Max forward/backward velocity
+        omega = max(min(omega, 15000.0), -15000.0)  # Max rotational velocity
 
         self.current_v =V
         self.current_omega =omega

@@ -71,7 +71,7 @@
         const reconnectInterval = 5000;
 
         function connectWebSocket() {
-            websocket = new WebSocket("ws://192.168.66.212:8080/ws");
+            websocket = new WebSocket("ws://192.168.156.212:8080/ws");
 
             websocket.onopen = function () {
                 document.getElementById('status').innerText = "Status: Connected";
