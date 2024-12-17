@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 # サンプリング間隔（時間ステップ）
 TIMESTEP = 0.1
 
-# ファイルパス
+# ファイルパスリスト
 pn_files = ["PN_data1.csv", "PN_data2.csv"]
 mpn_files = ["MPN_data1.csv", "MPN_data2.csv"]
+new_mpn_files = ["new_MPN_data1.csv", "new_MPN_data2.csv"]
 
 def analyze_data(file_list, label):
     """視野内、ズレ、加速度を解析"""
@@ -59,15 +60,18 @@ def plot_results(results, title, ylabel, metrics):
 # データ解析
 pn_results = analyze_data(pn_files, "PN")
 mpn_results = analyze_data(mpn_files, "MPN")
+new_mpn_results = analyze_data(new_mpn_files, "NEW_MPN")
 
 # 結果の表示
 print("\nPN Results:")
 print(pn_results)
 print("\nMPN Results:")
 print(mpn_results)
+print("\nNEW_MPN Results:")
+print(new_mpn_results)
 
 # 結果を結合して比較
-combined_results = pd.concat([pn_results, mpn_results], ignore_index=True)
+combined_results = pd.concat([pn_results, mpn_results, new_mpn_results], ignore_index=True)
 
 # グラフ表示
 plot_results(combined_results, "In-Frame Rate Comparison", "In-Frame Rate", ["InFrameRate"])
