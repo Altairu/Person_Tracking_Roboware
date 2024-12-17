@@ -1,6 +1,7 @@
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/serial_read_node.py
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/Roboware_node_mpn.py
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/PID_node.py
+/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/Roboware_node_newmpn.py
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/Roboware_node.py
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/serial_send_node.py
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/web_socket_node.py
@@ -10,6 +11,7 @@
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/__pycache__/serial_read_node.cpython-310.pyc
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/__pycache__/Roboware_node_mpn.cpython-310.pyc
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/__pycache__/PID_node.cpython-310.pyc
+/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/__pycache__/Roboware_node_newmpn.cpython-310.pyc
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/__pycache__/Roboware_node.cpython-310.pyc
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/__pycache__/serial_send_node.cpython-310.pyc
 /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/__pycache__/web_socket_node.cpython-310.pyc

@@ -24,8 +24,10 @@ class RealSenseNode(Node):
                                     source='local')
         self.create_timer(0.1, self.process_frames)
 
-        # 直近の有効な距離を保存
-        self.previous_valid_distance = None
+        # フィルタ用変数
+        self.previous_distance = 0.0  # 前回の距離値
+        self.distance_history = []  # 距離履歴
+        self.history_size = 5  # 移動平均履歴の最大サイズ
 
     def process_frames(self):
         try:
@@ -45,34 +47,27 @@ class RealSenseNode(Node):
                     x1, y1, x2, y2 = map(int, box)
                     center_x, center_y = (x1 + x2) // 2, (y1 + y2) // 2
 
-                    distance = depth_frame.get_distance(center_x, center_y)
+                    raw_distance = depth_frame.get_distance(center_x, center_y)
                     offset_x = center_x - (color_image.shape[1] // 2)
 
-                    # 距離が無効（0.0）なら直近の有効な値を使用
-                    if distance == 0.0:
-                        if self.previous_valid_distance is not None:
-                            distance = self.previous_valid_distance
-                            self.get_logger().warn("Invalid distance detected. Using previous valid value.")
-                        else:
-                            self.get_logger().warn("Invalid distance detected. Skipping frame.")
-                            continue  # 最初のフレームで無効値の場合スキップ
-
-                    # 有効な距離を保存
-                    self.previous_valid_distance = distance
+                    # 距離の処理
+                    filtered_distance = self.filter_distance(raw_distance)
 
                     # Publish camera data
                     msg = Float32MultiArray()
-                    msg.data = [distance, float(offset_x)]
+                    msg.data = [filtered_distance, float(offset_x)]
                     self.publisher.publish(msg)
 
-                    self.get_logger().info(f"Published camera data: Distance={distance}, Offset={offset_x}")
+                    self.get_logger().info(f"Published camera data: Distance={filtered_distance:.2f}, Offset={offset_x}")
 
                     # 画面に検出結果を描画
                     cv2.rectangle(color_image, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                    cv2.putText(color_image, f"Distance: {distance:.2f}m", (x1, y1 - 10),
+                    cv2.putText(color_image, f"Distance: {filtered_distance:.2f}m", (x1, y1 - 10),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
                     cv2.putText(color_image, f"Offset: {offset_x}", (x1, y1 - 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+                    self.previous_distance = filtered_distance  # 前回の距離を更新
                     break
 
             # カメラ映像を表示
@@ -82,9 +77,27 @@ class RealSenseNode(Node):
         except Exception as e:
             self.get_logger().error(f"Error processing frames: {str(e)}")
 
+    def filter_distance(self, current_distance):
+        """
+        距離が近づく場合はそのまま、遠ざかる場合はフィルタリングする。
+        """
+        if current_distance == 0.0:  # 無効値は無視
+            return self.previous_distance
+
+        if current_distance < self.previous_distance:
+            # 近づいている場合: そのままの値を使用
+            self.distance_history = [current_distance]  # 履歴をリセット
+            return current_distance
+        else:
+            # 遠ざかる場合: 移動平均フィルタを適用
+            self.distance_history.append(current_distance)
+            if len(self.distance_history) > self.history_size:
+                self.distance_history.pop(0)  # 古い値を削除
+            return sum(self.distance_history) / len(self.distance_history)
+
     def destroy_node(self):
         self.pipeline.stop()
-        cv2.destroyAllWindows()  # OpenCVのウィンドウを閉じる
+        cv2.destroyAllWindows()
         super().destroy_node()
 
 def main(args=None):

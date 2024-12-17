@@ -3,6 +3,7 @@ from rclpy.node import Node
 from std_msgs.msg import String, Float32MultiArray
 import csv
 import os
+import math
 
 class RobowareNode(Node):
     def __init__(self):
@@ -29,12 +30,13 @@ class RobowareNode(Node):
         self.previous_offset = 0.0  # 前回のオフセット
         self.kp_v = 5000.0  # Proportional gain for velocity
         self.kp_omega = 50.0  # Proportional gain for angular velocity
+        self.kd_lambda = 0.1  # 最大微分ゲイン
+        self.a = 0.1  # 動的微分ゲイン調整パラメータ
         self.navigation_constant = 2.0  # Proportional navigation constant (N)
-        self.lambda_gain = 0.1  # 偏差角速度の微分ゲイン 前1.0 0.1
         self.dt = 0.1  # サンプリング間隔（秒）
 
         # CSVファイルの設定
-        self.csv_file = "MPN_data2.csv"
+        self.csv_file = "new_MPN_data2.csv"
         self.initialize_csv()
 
         # タイマー設定
@@ -57,7 +59,6 @@ class RobowareNode(Node):
             writer = csv.writer(file)
             writer.writerow([time, distance, offset, v, omega, right_speed, left_speed])
 
-
     def listener_callback(self, msg):
         try:
             data = list(map(float, msg.data.split(',')))
@@ -79,7 +80,6 @@ class RobowareNode(Node):
                 self.target_right = V + omega
                 self.target_left = V - omega
                 self.recording = False  # 記録停止
-                self.get_logger().info(f"Control mode | V={V}, Omega={omega} | Target Right={self.target_right}, Left={self.target_left}")
             elif self.mode == 1:  # Follow Mode (画像処理モード)
                 self.follow_person()
                 self.recording = True  # 記録開始
@@ -103,21 +103,24 @@ class RobowareNode(Node):
         distance = max(self.person_distance, 1.0)
         offset_rate = (self.person_offset - self.previous_offset) / self.dt  # 偏差角速度
 
+        # 動的微分ゲイン
+        dynamic_kd = self.kd_lambda * (1 - math.exp(-self.a * abs(offset_rate))) / (1 + math.exp(-self.a * abs(offset_rate)))
+
         # 直進速度
         V = self.kp_v * (distance - 1.0)
 
         # 修正された角速度
         omega = (
             -1 * self.navigation_constant * self.kp_omega * self.person_offset / distance +
-            self.lambda_gain * offset_rate
+            dynamic_kd * offset_rate
         )
 
         # Clamp the values to maximum limits
         V = max(min(V, 30000.0), -30000.0)  # Max forward/backward velocity
         omega = max(min(omega, 15000.0), -15000.0)  # Max rotational velocity
 
-        self.current_v =V
-        self.current_omega =omega
+        self.current_v = V
+        self.current_omega = omega
 
         # Calculate target velocities for left and right wheels
         self.target_right = V + omega
@@ -126,7 +129,7 @@ class RobowareNode(Node):
         # 前回の偏差を更新
         self.previous_offset = self.person_offset
 
-        self.get_logger().info(f"Follow mode | Distance={self.person_distance}, Offset={self.person_offset}, OffsetRate={offset_rate} | V={V}, Omega={omega} | Target Right={self.target_right}, Left={self.target_left}")
+        self.get_logger().info(f"Follow mode | Distance={self.person_distance}, Offset={self.person_offset}, OffsetRate={offset_rate} | Kd={dynamic_kd:.2f} | V={V}, Omega={omega} | Target Right={self.target_right}, Left={self.target_left}")
 
     def publish_targets(self):
         msg = Float32MultiArray()
@@ -146,6 +149,7 @@ class RobowareNode(Node):
                 self.target_right, 
                 self.target_left
             )
+
 def main(args=None):
     rclpy.init(args=args)
     node = RobowareNode()
