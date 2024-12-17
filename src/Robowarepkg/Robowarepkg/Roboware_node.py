@@ -27,14 +27,14 @@ class RobowareNode(Node):
         self.person_distance = 0.0
         self.person_offset = 0.0
         self.previous_offset = 0.0  # 前回のオフセット
-        self.kp_v = 10000.0  # Proportional gain for velocity
+        self.kp_v = 5000.0  # Proportional gain for velocity
         self.kp_omega = 50.0  # Proportional gain for angular velocity
         self.navigation_constant = 2.0  # Proportional navigation constant (N)
-        self.lambda_gain = 0.1  # 偏差角速度の微分ゲイン 前1.0
+        self.lambda_gain = 0.1  # 偏差角速度の微分ゲイン 前1.0 0.1
         self.dt = 0.1  # サンプリング間隔（秒）
 
         # CSVファイルの設定
-        self.csv_file = "NEW_MPN_robot_follow_data.csv"
+        self.csv_file = "MPN_data2.csv"
         self.initialize_csv()
 
         # タイマー設定

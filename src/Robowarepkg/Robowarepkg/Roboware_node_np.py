@@ -32,7 +32,7 @@ class RobowareNode(Node):
         self.navigation_constant = 2.0  # Proportional navigation constant (N)
 
         # CSVファイルの設定
-        self.csv_file = "NEW_PN_robot_follow_data.csv"
+        self.csv_file = "PN_data1.csv"
         self.initialize_csv()
 
         # タイマー設定
@@ -99,9 +99,7 @@ class RobowareNode(Node):
         # Proportional Navigation Algorithm (PN)
         V = self.kp_v * (self.person_distance - 1.0)
         omega = -1 * (self.navigation_constant) * self.kp_omega * self.person_offset / max((self.person_distance), 1.0)
-
         # Clamp the values to maximum limits
-        # 前　10000.0~-10000.   8000.0 ~ -8000.0
         V = max(min(V, 30000.0), -30000.0)  # Max forward/backward velocity
         omega = max(min(omega, 15000.0), -15000.0)  # Max rotational velocity
 
