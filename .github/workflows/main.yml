@@ -55,17 +55,9 @@ jobs:
         run: |
           echo "Skipping web_socket_node validation in GitHub Actions environment."
 
-      - name: Validate RealSense_node
+      - name: Skip RealSense_node
         run: |
-          source /opt/ros/humble/setup.bash
-          source install/setup.bash
-          nohup ros2 run Robowarepkg RealSense_node > RealSense_node.log 2>&1 &
-          sleep 5
-          pkill -f "ros2 run Robowarepkg RealSense_node"
-          if grep -q "ERROR" RealSense_node.log; then
-            cat RealSense_node.log
-            exit 1
-          fi
+          echo "Skipping RealSense_node validation as it depends on serial port hardware."
 
       - name: Validate PID_node
         run: |
