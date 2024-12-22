@@ -29,11 +29,45 @@ jobs:
           sudo rosdep init || true
           rosdep update
 
-      # 環境変数を設定してノードを起動
-      - name: Run ROS2 Nodes with Reduced Logs
-        env:
-          RCUTILS_LOGGING_SEVERITY: ERROR
+      # ビルド
+      - name: Build workspace
         run: |
           source /opt/ros/humble/setup.bash
           colcon build
-          ./start_all_nodes.sh
+
+      # 各ノードの検証
+      - name: Run Roboware_node
+        run: |
+          source /opt/ros/humble/setup.bash
+          source install/setup.bash
+          ros2 run Robowarepkg Roboware_node
+
+      - name: Run serial_send_node
+        run: |
+          source /opt/ros/humble/setup.bash
+          source install/setup.bash
+          ros2 run Robowarepkg serial_send_node
+
+      - name: Run serial_read_node
+        run: |
+          source /opt/ros/humble/setup.bash
+          source install/setup.bash
+          ros2 run Robowarepkg serial_read_node
+
+      - name: Run web_socket_node
+        run: |
+          source /opt/ros/humble/setup.bash
+          source install/setup.bash
+          ros2 run Robowarepkg web_socket_node
+
+      - name: Run RealSense_node
+        run: |
+          source /opt/ros/humble/setup.bash
+          source install/setup.bash
+          ros2 run Robowarepkg RealSense_node
+
+      - name: Run PID_node
+        run: |
+          source /opt/ros/humble/setup.bash
+          source install/setup.bash
+          ros2 run Robowarepkg PID_node
