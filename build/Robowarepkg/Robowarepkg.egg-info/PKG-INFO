@@ -3,6 +3,8 @@ Name: Robowarepkg
 Version: 0.0.0
 Summary: TODO: Package description
 Maintainer: altair
-Maintainer-email: Altairu@github.comu
+Maintainer-email: Altairu@example.com
 License: TODO: License declaration
 Requires-Dist: setuptools
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
