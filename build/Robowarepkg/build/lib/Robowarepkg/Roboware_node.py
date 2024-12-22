@@ -36,7 +36,7 @@ class RobowareNode(Node):
         self.dt = 0.1  # サンプリング間隔（秒）
 
         # CSVファイルの設定
-        self.csv_file = "new_MPN_data2.csv"
+        self.csv_file = "new_MPN_data.csv"
         self.initialize_csv()
 
         # タイマー設定
@@ -116,8 +116,11 @@ class RobowareNode(Node):
         )
 
         # Clamp the values to maximum limits
-        V = max(min(V, 30000.0), -30000.0)  # Max forward/backward velocity
-        omega = max(min(omega, 15000.0), -15000.0)  # Max rotational velocity
+        #V = max(min(V, 30000.0), -30000.0)  # Max forward/backward velocity
+        #omega = max(min(omega, 15000.0), -15000.0)  # Max rotational velocity
+
+        V = max(min(V, 50000.0), -50000.0)  # Max forward/backward velocity
+        omega = max(min(omega, 30000.0), -30000.0)  # Max rotational velocity
 
         self.current_v = V
         self.current_omega = omega

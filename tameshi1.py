@@ -17,10 +17,10 @@ def dynamic_kd(base_kd, omega, a=1.0):
 
 # 設定
 base_kd = 10.0  # 基本微分ゲイン
-omegas = np.linspace(-50, 50, 200)  # 角速度範囲
+omegas = np.linspace(-100, 100, 200)  # 角速度範囲
 
 # 異なるパラメータaで動的Kdを計算
-a_values = [0.2, 0.5, 1.0, 2.0]  # 小さいaほど変化が緩やか
+a_values = [0.05,0.1,0.2, 0.5, 1.0, 2.0]  # 小さいaほど変化が緩やか
 kd_results = {a: [dynamic_kd(base_kd, omega, a) for omega in omegas] for a in a_values}
 
 # グラフの描画
