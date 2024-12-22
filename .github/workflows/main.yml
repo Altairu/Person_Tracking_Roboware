@@ -2,7 +2,7 @@ name: Validate ROS2 Nodes
 
 on:
   schedule:
-    - cron: '0 22 * * *'
+    - cron: '0 22 * * *'  # 日本時間7:00に相当
 
   push:
     branches:
@@ -31,42 +31,25 @@ jobs:
           source /opt/ros/humble/setup.bash
           colcon build
 
-      # 各ノードの起動と確認
       - name: Validate Roboware_node
         run: |
           source /opt/ros/humble/setup.bash
           source install/setup.bash
           nohup ros2 run Robowarepkg Roboware_node > roboware_node.log 2>&1 &
-          sleep 5  # ノード起動を待機
-          pkill -f "ros2 run Robowarepkg Roboware_node"  # ノードを停止
+          sleep 5
+          pkill -f "ros2 run Robowarepkg Roboware_node"
           if grep -q "ERROR" roboware_node.log; then
             cat roboware_node.log
             exit 1
           fi
 
-      - name: Validate serial_send_node
+      - name: Skip serial_send_node validation
         run: |
-          source /opt/ros/humble/setup.bash
-          source install/setup.bash
-          nohup ros2 run Robowarepkg serial_send_node > serial_send_node.log 2>&1 &
-          sleep 5
-          pkill -f "ros2 run Robowarepkg serial_send_node"
-          if grep -q "ERROR" serial_send_node.log; then
-            cat serial_send_node.log
-            exit 1
-          fi
+          echo "Skipping serial_send_node validation as it depends on serial port hardware."
 
-      - name: Validate serial_read_node
+      - name: Skip serial_read_node validation
         run: |
-          source /opt/ros/humble/setup.bash
-          source install/setup.bash
-          nohup ros2 run Robowarepkg serial_read_node > serial_read_node.log 2>&1 &
-          sleep 5
-          pkill -f "ros2 run Robowarepkg serial_read_node"
-          if grep -q "ERROR" serial_read_node.log; then
-            cat serial_read_node.log
-            exit 1
-          fi
+          echo "Skipping serial_read_node validation as it depends on serial port hardware."
 
       - name: Validate web_socket_node
         run: |
@@ -77,5 +60,29 @@ jobs:
           pkill -f "ros2 run Robowarepkg web_socket_node"
           if grep -q "ERROR" web_socket_node.log; then
             cat web_socket_node.log
+            exit 1
+          fi
+
+      - name: Validate RealSense_node
+        run: |
+          source /opt/ros/humble/setup.bash
+          source install/setup.bash
+          nohup ros2 run Robowarepkg RealSense_node > RealSense_node.log 2>&1 &
+          sleep 5
+          pkill -f "ros2 run Robowarepkg RealSense_node"
+          if grep -q "ERROR" RealSense_node.log; then
+            cat RealSense_node.log
+            exit 1
+          fi
+
+      - name: Validate PID_node
+        run: |
+          source /opt/ros/humble/setup.bash
+          source install/setup.bash
+          nohup ros2 run Robowarepkg PID_node > PID_node.log 2>&1 &
+          sleep 5
+          pkill -f "ros2 run Robowarepkg PID_node"
+          if grep -q "ERROR" PID_node.log; then
+            cat PID_node.log
             exit 1
           fi
