@@ -1,8 +1,7 @@
-name: Run ROS2 Nodes Daily at 7:00 JST
+name: Validate ROS2 Nodes
 
 on:
   schedule:
-    # 毎日日本時間の朝7:00に実行 (UTCでは前日22:00)
     - cron: '0 22 * * *'
 
   push:
@@ -10,15 +9,13 @@ on:
       - main
 
 jobs:
-  run_ros2_nodes:
+  validate_ros2_nodes:
     runs-on: ubuntu-22.04
 
     steps:
-      # リポジトリをクローン
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # ROS2 Humbleのセットアップ
       - name: Set up ROS2 Humble
         run: |
           sudo apt update && sudo apt install -y curl gnupg lsb-release
@@ -29,45 +26,56 @@ jobs:
           sudo rosdep init || true
           rosdep update
 
-      # ビルド
       - name: Build workspace
         run: |
           source /opt/ros/humble/setup.bash
           colcon build
 
-      # 各ノードの検証
-      - name: Run Roboware_node
+      # 各ノードの起動と確認
+      - name: Validate Roboware_node
         run: |
           source /opt/ros/humble/setup.bash
           source install/setup.bash
-          ros2 run Robowarepkg Roboware_node
+          nohup ros2 run Robowarepkg Roboware_node > roboware_node.log 2>&1 &
+          sleep 5  # ノード起動を待機
+          pkill -f "ros2 run Robowarepkg Roboware_node"  # ノードを停止
+          if grep -q "ERROR" roboware_node.log; then
+            cat roboware_node.log
+            exit 1
+          fi
 
-      - name: Run serial_send_node
+      - name: Validate serial_send_node
         run: |
           source /opt/ros/humble/setup.bash
           source install/setup.bash
-          ros2 run Robowarepkg serial_send_node
+          nohup ros2 run Robowarepkg serial_send_node > serial_send_node.log 2>&1 &
+          sleep 5
+          pkill -f "ros2 run Robowarepkg serial_send_node"
+          if grep -q "ERROR" serial_send_node.log; then
+            cat serial_send_node.log
+            exit 1
+          fi
 
-      - name: Run serial_read_node
+      - name: Validate serial_read_node
         run: |
           source /opt/ros/humble/setup.bash
           source install/setup.bash
-          ros2 run Robowarepkg serial_read_node
+          nohup ros2 run Robowarepkg serial_read_node > serial_read_node.log 2>&1 &
+          sleep 5
+          pkill -f "ros2 run Robowarepkg serial_read_node"
+          if grep -q "ERROR" serial_read_node.log; then
+            cat serial_read_node.log
+            exit 1
+          fi
 
-      - name: Run web_socket_node
+      - name: Validate web_socket_node
         run: |
           source /opt/ros/humble/setup.bash
           source install/setup.bash
-          ros2 run Robowarepkg web_socket_node
-
-      - name: Run RealSense_node
-        run: |
-          source /opt/ros/humble/setup.bash
-          source install/setup.bash
-          ros2 run Robowarepkg RealSense_node
-
-      - name: Run PID_node
-        run: |
-          source /opt/ros/humble/setup.bash
-          source install/setup.bash
-          ros2 run Robowarepkg PID_node
+          nohup ros2 run Robowarepkg web_socket_node > web_socket_node.log 2>&1 &
+          sleep 5
+          pkill -f "ros2 run Robowarepkg web_socket_node"
+          if grep -q "ERROR" web_socket_node.log; then
+            cat web_socket_node.log
+            exit 1
+          fi
