@@ -1,151 +1,139 @@
+# **Person_Tracking_Roboware　Robowarepkg README**
 
-# Robowarepkg - README
+## **概要**
 
-## 概要
+**Robowarepkg**は、人の追跡や制御を行うロボットアプリケーションパッケージです。
+ROS 2を基盤とし、RealSenseカメラによるデータ取得、PID制御、シリアル通信、WebSocket通信などの機能を組み合わせて動作している。
 
-`Robowarepkg`は、ROS 2を使用して二輪移動ロボットを制御するパッケージです。このパッケージは、WebSocketを介してコントローラーから速度指令を受け取り、二輪の運動学に基づいて左右の車輪速度（回転数、RPS: Revolutions Per Second）を計算し、シリアル通信を通じてマイコンに送信します。また、マイコンからの車輪速度情報（RPS）を受け取り、ロボットの自己位置を推定します。自己位置の推定には、二輪の運動学モデルを利用しています。
 
----
+## **システム構成**
 
-## システム構成
-
-### ノード構成
-
-`Robowarepkg`は、以下のノードで構成されています：
-
-1. **`web_socket_node`**:
-    - WebSocket通信を介して外部コントローラーから速度指令（直進速度V[mm/s]と角速度ω[rad/s]）を受け取り、それらをROSトピックにパブリッシュします。
-    - FastAPIを使用したWebSocketサーバーが起動し、ジョイスティックのUIを通じて指令が送信されます。
-
-2. **`Roboware_node`**:
-    - `web_socket_node`から送られた速度指令（V[mm/s], ω[rad/s]）に基づいて、左右の車輪の回転速度（RPS）を計算します。
-    - 計算されたRPSは、シリアル通信を介してマイコンに送信するためのトピック`wheel_rps`にパブリッシュされます。
-
-3. **`serial_send_node`**:
-    - `Roboware_node`で計算されたRPSをマイコンにシリアル通信で送信します。データフォーマットは以下の通りです。
-    
-4. **`serial_read_node`**:
-    - マイコンから受け取った左右の車輪の回転数（RPS）をROSトピック`robot_position`にパブリッシュします。
-
-5. **`position_node`**:
-    - マイコンからのRPSを基に、自己位置を推定します。推定された位置はROSトピック`estimated_position`にパブリッシュされ、外部システムやモニタリングに使用されます。
+### ノード一覧
+- **Roboware_node**
+  - システムの中心ノードで、各モードの切り替えやホイール速度の制御を行います。
+- **Roboware_node_mpn / Roboware_node_pn / Roboware_node_newmpn**
+  - 制御式が異なるバージョンを記録するテスト用ノード。
+  - `Roboware_node`に統合して使用可能です。
+- **PID_node**
+  - PID制御を用いてホイール速度を制御します。
+- **RealSense_node**
+  - RealSenseカメラで得たデータをもとに人の位置を計測します。
+- **serial_send_node / serial_read_node**
+  - マイコンとのシリアル通信を担当します。
+- **web_socket_node**
+  - WebSocket通信で外部アプリケーションとリアルタイム通信を行います。
 
 ---
 
-## マイコンとの通信仕様
+## **通信仕様**
 
-### 送信データ形式 (PCからマイコンへ)
-PCからマイコンに送信されるデータは、以下のフォーマットで構成されています。
+### **マイコンとの通信**
+#### **送信データ形式**（PC → マイコン）
+- **ヘッダー**: `0xA5, 0xA5`（2バイト）
+- **右車輪速度 (Vr)**: `float`形式（4バイト）
+- **左車輪速度 (Vl)**: `float`形式（4バイト）
+- **合計**: 10バイト
 
-- **ヘッダー**:
-    - 0xA5, 0xA5（2バイト）
-- **右車輪速度** (Vr [mm/s]):
-    - float形式（4バイト）
-- **左車輪速度** (Vl [mm/s]):
-    - float形式（4バイト）
+#### **受信データ形式**（マイコン → PC）
+- **ヘッダー**: `0xA5, 0xA5`（2バイト）
+- **右車輪回転数 (ωr)**: `float`形式（4バイト）
+- **左車輪回転数 (ωl)**: `float`形式（4バイト）
+- **合計**: 10バイト
 
-合計 **10バイト** のデータがマイコンに送信されます。
-
-### 受信データ形式 (マイコンからPCへ)
-マイコンからPCに送信されるデータは以下のフォーマットです。
-
-- **ヘッダー**:
-    - 0xA5, 0xA5（2バイト）
-- **右車輪の回転数** (ωr [RPS]):
-    - float形式（4バイト）
-- **左車輪の回転数** (ωl [RPS]):
-    - float形式（4バイト）
-
-合計 **10バイト** のデータがPCに送信されます。
+### **WebSocket通信**
+- **IPアドレス**: `192.168.62.212`
+- **ポート番号**: `8080`
+- **コマンドフォーマット**: `[mode, rx, ry, lx, ly, stop]`
+  - `mode`: 0（手動操作）または1（追跡モード）
+  - `stop`: 1（緊急停止）または0（動作中）
 
 ---
 
-## ノード詳細とトピック
+## **ノード詳細とトピック**
 
-### 1. `web_socket_node`
-- **トピック**:
-    - `/web_socket_pub`（`String`）：外部からの速度指令をパブリッシュ。
-    - `/estimated_position`（`Float32MultiArray`）：推定された自己位置データを受信してWebSocketを通じてクライアントに返す。
+### Roboware_node
+- **購読トピック**: 
+  - `web_socket_pub` (String): WebSocket通信からのモード切り替え指示。
+  - `camera_data` (Float32MultiArray): RealSenseノードからのデータ。
+- **発行トピック**:
+  - `wheel_targets` (Float32MultiArray): 各ホイールの速度指示。
 
-### 2. `Roboware_node`
-- **トピック**:
-    - `/web_socket_pub`（`String`）：WebSocketからの速度指令をサブスクライブ。
-    - `/wheel_rps`（`Float32MultiArray`）：計算された左右の車輪速度（RPS）をパブリッシュ。
+### PID_node
+- **購読トピック**:
+  - `wheel_targets` (Float32MultiArray): ホイール目標速度。
+  - `wheel_feedback` (Float32MultiArray): 実際のホイール速度。
+- **発行トピック**:
+  - `wheel_controls` (Float32MultiArray): シリアル送信用の制御信号。
 
-### 3. `serial_send_node`
-- **トピック**:
-    - `/wheel_rps`（`Float32MultiArray`）：ロボットに送信するRPSデータをサブスクライブ。
+### RealSense_node
+- **発行トピック**:
+  - `camera_data` (Float32MultiArray): 人物の距離とオフセット。
 
-### 4. `serial_read_node`
-- **トピック**:
-    - `/robot_position`（`Float32MultiArray`）：マイコンからの左右の車輪RPSデータをパブリッシュ。
+### serial_send_node
+- **購読トピック**:
+  - `wheel_controls` (Float32MultiArray): PIDノードからの制御信号。
 
-### 5. `position_node`
-- **トピック**:
-    - `/robot_position`（`Float32MultiArray`）：受信した車輪の回転数（RPS）をサブスクライブ。
-    - `/estimated_position`（`Float32MultiArray`）：自己位置推定結果をパブリッシュ。
+### serial_read_node
+- **発行トピック**:
+  - `wheel_feedback` (Float32MultiArray): 実際のホイール速度。
+
+### web_socket_node
+- **購読トピック**:
+  - `estimated_position` (Float32MultiArray): 推定位置データ。
+- **発行トピック**:
+  - `web_socket_pub` (String): WebSocket通信で受信したコマンド。
 
 ---
 
-## 使用方法
+## **使用方法**
 
-### 1. 環境のセットアップ
-1. **ROS 2** (FoxyやHumbleなど)をインストールして、作業環境をセットアップします。
-2. 必要な依存パッケージをインストールします。特に、`FastAPI`、`Uvicorn`、`serial`などが必要です。
-
+### 1. **セットアップ**
 ```bash
-pip install fastapi uvicorn pyserial
+colcon build
+source install/setup.bash
 ```
 
-### 2. パッケージのビルド
-ROS 2ワークスペースでパッケージをビルドします。
-
+### 2. **ノード起動例**
 ```bash
-colcon build --packages-select Robowarepkg
-```
-
-### 3. 実行
-ROS 2ノードとFastAPIサーバーを実行するために以下のコマンドを実行します。
-
-```bash
+ros2 run Robowarepkg Roboware_node
+ros2 run Robowarepkg PID_node
+ros2 run Robowarepkg RealSense_node
+ros2 run Robowarepkg serial_send_node
+ros2 run Robowarepkg serial_read_node
 ros2 run Robowarepkg web_socket_node
 ```
 
-このコマンドにより、WebSocketサーバーとROS 2ノードが同時に実行されます。
+---
 
-ブラウザから`http://<ip_address>:8080/`にアクセスすると、ジョイスティックUIを操作する画面が表示されます。
+## **WebSocketノードの使用方法**
+
+1. **HTMLファイルの利用**:
+   `/home/altair/Roboware/UI.txt` をブラウザで開くことでロボット操作が可能。
+   - **URL**: `http://192.168.62.212:8080`
+2. **モード切り替え**:
+   - ボタンを押して`Control`モードと`Follow`モードを切り替えます。
+3. **接続再試行**:
+   - 接続が切れると5秒間隔で自動再接続を試みます。
 
 ---
 
-## 通信内容
+## **rqtによるモニタリング**
 
-### WebSocket通信
-WebSocket通信を使用して、クライアント（ブラウザなど）からロボットの速度指令を送信します。具体的には、ジョイスティック操作によって生成された速度指令`V`（mm/s）と角速度`ω`（rad/s）が、次のフォーマットでサーバーに送信されます。
-
-- `V, ω`
-    - 例: `500, 0.1`（前進速度500 mm/s、角速度0.1 rad/s）
-
-### シリアル通信
-上記で述べたフォーマットに基づいて、PCからマイコンへと速度指令を送信し、マイコンから車輪の回転数（RPS）を受け取ります。
-
----
-
-## rqtによるモニタリング
-
-`rqt`を使用して、ROSトピックのモニタリングやデバッグを行うことができます。特に、自己位置推定データや車輪の回転数を視覚的に確認するのに役立ちます。
-
-### 1. rqt_graph
-ROSのトピックとノードの関係を視覚化するために`rqt_graph`を使います。
-
+### 1. **rqt_graph**
+ノード間の接続状況を視覚化：
 ```bash
 rqt_graph
 ```
 
-### 2. rqt_plot
-`rqt_plot`を使用して、車輪の回転数や自己位置のデータをリアルタイムにプロットすることができます。
-
+### 2. **rqt_plot**
+トピックデータをリアルタイムでプロット：
 ```bash
-rqt_plot /estimated_position[0] /estimated_position[1]
+rqt_plot /wheel_feedback[0] /wheel_feedback[1]
 ```
 
-これにより、x座標（前進方向）とy座標（横方向）の推定位置がリアルタイムでプロットされます。
+---
+
+## **注意事項**
+
+- IPアドレスとポート番号は環境に合わせて変更してください。
+- ノードを起動する前にすべての依存パッケージをインストールしてください。
