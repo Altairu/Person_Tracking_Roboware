@@ -1,0 +1,38 @@
+[0.843s] Invoking command in '/home/altair/Roboware/src/Robowarepkg': PYTHONPATH=/home/altair/Roboware/build/Robowarepkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/Robowarepkg build --build-base /home/altair/Roboware/build/Robowarepkg/build install --record /home/altair/Roboware/build/Robowarepkg/install.log --single-version-externally-managed install_data
+[1.129s] running egg_info
+[1.141s] writing ../../build/Robowarepkg/Robowarepkg.egg-info/PKG-INFO
+[1.142s] writing dependency_links to ../../build/Robowarepkg/Robowarepkg.egg-info/dependency_links.txt
+[1.142s] writing entry points to ../../build/Robowarepkg/Robowarepkg.egg-info/entry_points.txt
+[1.142s] writing requirements to ../../build/Robowarepkg/Robowarepkg.egg-info/requires.txt
+[1.142s] writing top-level names to ../../build/Robowarepkg/Robowarepkg.egg-info/top_level.txt
+[1.170s] reading manifest file '../../build/Robowarepkg/Robowarepkg.egg-info/SOURCES.txt'
+[1.171s] writing manifest file '../../build/Robowarepkg/Robowarepkg.egg-info/SOURCES.txt'
+[1.171s] running build
+[1.171s] running build_py
+[1.171s] copying Robowarepkg/serial_read_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.172s] copying Robowarepkg/Roboware_node_mpn.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.172s] copying Robowarepkg/PID_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.172s] copying Robowarepkg/Roboware_node_newmpn.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.172s] copying Robowarepkg/Roboware_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.172s] copying Robowarepkg/serial_send_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.172s] copying Robowarepkg/web_socket_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.172s] copying Robowarepkg/RealSense_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.172s] copying Robowarepkg/__init__.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.173s] copying Robowarepkg/Roboware_node_np.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.173s] running install
+[1.177s] running install_lib
+[1.190s] running install_data
+[1.191s] copying resource/Robowarepkg -> /home/altair/Roboware/install/Robowarepkg/share/ament_index/resource_index/packages
+[1.191s] copying package.xml -> /home/altair/Roboware/install/Robowarepkg/share/Robowarepkg
+[1.191s] running install_egg_info
+[1.205s] removing '/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info' (and everything under it)
+[1.205s] Copying ../../build/Robowarepkg/Robowarepkg.egg-info to /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info
+[1.206s] running install_scripts
+[1.309s] Installing PID_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+[1.309s] Installing RealSense_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+[1.309s] Installing Roboware_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+[1.309s] Installing serial_read_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+[1.309s] Installing serial_send_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+[1.309s] Installing web_socket_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg
+[1.310s] writing list of installed files to '/home/altair/Roboware/build/Robowarepkg/install.log'
+[1.373s] Invoked command in '/home/altair/Roboware/src/Robowarepkg' returned '0': PYTHONPATH=/home/altair/Roboware/build/Robowarepkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/Robowarepkg build --build-base /home/altair/Roboware/build/Robowarepkg/build install --record /home/altair/Roboware/build/Robowarepkg/install.log --single-version-externally-managed install_data

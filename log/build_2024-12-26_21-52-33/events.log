@@ -1,0 +1,56 @@
+[0.000000] (-) TimerEvent: {}
+[0.000232] (Robowarepkg) JobQueued: {'identifier': 'Robowarepkg', 'dependencies': OrderedDict()}
+[0.000281] (Robowarepkg) JobStarted: {'identifier': 'Robowarepkg'}
+[0.099507] (-) TimerEvent: {}
+[0.200084] (-) TimerEvent: {}
+[0.300749] (-) TimerEvent: {}
+[0.401499] (-) TimerEvent: {}
+[0.501826] (-) TimerEvent: {}
+[0.602157] (-) TimerEvent: {}
+[0.702502] (-) TimerEvent: {}
+[0.803298] (-) TimerEvent: {}
+[0.841584] (Robowarepkg) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/Robowarepkg', 'build', '--build-base', '/home/altair/Roboware/build/Robowarepkg/build', 'install', '--record', '/home/altair/Roboware/build/Robowarepkg/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/altair/Roboware/src/Robowarepkg', 'env': {'USER': 'altair', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'HOME': '/home/altair', 'DESKTOP_SESSION': 'ubuntu', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '1362', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'LOGNAME': 'altair', '_': '/usr/bin/colcon', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'altair', 'COLUMNS': '101', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/altair/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/altair-HCAR5000-MI:@/tmp/.ICE-unix/1328,unix/altair-HCAR5000-MI:/tmp/.ICE-unix/1328', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/2d89f77b_5646_4123_a517_c2ecfa5b3ad9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'ja_JP.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.GB1BZ2', 'GNOME_TERMINAL_SERVICE': ':1.355', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/altair/Roboware/build/Robowarepkg', 'LC_ALL': 'ja_JP.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'LINES': '38', 'COLCON': '1', 'VTE_VERSION': '6800', 'PYTHONPATH': '/home/altair/Roboware/build/Robowarepkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages:'}, 'shell': False}
+[0.903449] (-) TimerEvent: {}
+[1.003817] (-) TimerEvent: {}
+[1.104550] (-) TimerEvent: {}
+[1.129147] (Robowarepkg) StdoutLine: {'line': b'running egg_info\n'}
+[1.141617] (Robowarepkg) StdoutLine: {'line': b'writing ../../build/Robowarepkg/Robowarepkg.egg-info/PKG-INFO\n'}
+[1.142199] (Robowarepkg) StdoutLine: {'line': b'writing dependency_links to ../../build/Robowarepkg/Robowarepkg.egg-info/dependency_links.txt\n'}
+[1.142411] (Robowarepkg) StdoutLine: {'line': b'writing entry points to ../../build/Robowarepkg/Robowarepkg.egg-info/entry_points.txt\n'}
+[1.142580] (Robowarepkg) StdoutLine: {'line': b'writing requirements to ../../build/Robowarepkg/Robowarepkg.egg-info/requires.txt\n'}
+[1.142681] (Robowarepkg) StdoutLine: {'line': b'writing top-level names to ../../build/Robowarepkg/Robowarepkg.egg-info/top_level.txt\n'}
+[1.170243] (Robowarepkg) StdoutLine: {'line': b"reading manifest file '../../build/Robowarepkg/Robowarepkg.egg-info/SOURCES.txt'\n"}
+[1.171042] (Robowarepkg) StdoutLine: {'line': b"writing manifest file '../../build/Robowarepkg/Robowarepkg.egg-info/SOURCES.txt'\n"}
+[1.171337] (Robowarepkg) StdoutLine: {'line': b'running build\n'}
+[1.171489] (Robowarepkg) StdoutLine: {'line': b'running build_py\n'}
+[1.171699] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/serial_read_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.171826] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/Roboware_node_mpn.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.171930] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/PID_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.172104] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/Roboware_node_newmpn.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.172241] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/Roboware_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.172425] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/serial_send_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.172564] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/web_socket_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.172697] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/RealSense_node.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.172749] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/__init__.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.172795] (Robowarepkg) StdoutLine: {'line': b'copying Robowarepkg/Roboware_node_np.py -> /home/altair/Roboware/build/Robowarepkg/build/lib/Robowarepkg\n'}
+[1.173024] (Robowarepkg) StdoutLine: {'line': b'running install\n'}
+[1.176790] (Robowarepkg) StdoutLine: {'line': b'running install_lib\n'}
+[1.190549] (Robowarepkg) StdoutLine: {'line': b'running install_data\n'}
+[1.190770] (Robowarepkg) StdoutLine: {'line': b'copying resource/Robowarepkg -> /home/altair/Roboware/install/Robowarepkg/share/ament_index/resource_index/packages\n'}
+[1.190887] (Robowarepkg) StdoutLine: {'line': b'copying package.xml -> /home/altair/Roboware/install/Robowarepkg/share/Robowarepkg\n'}
+[1.191019] (Robowarepkg) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.204693] (-) TimerEvent: {}
+[1.205375] (Robowarepkg) StdoutLine: {'line': b"removing '/home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[1.205722] (Robowarepkg) StdoutLine: {'line': b'Copying ../../build/Robowarepkg/Robowarepkg.egg-info to /home/altair/Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info\n'}
+[1.206621] (Robowarepkg) StdoutLine: {'line': b'running install_scripts\n'}
+[1.305268] (-) TimerEvent: {}
+[1.308874] (Robowarepkg) StdoutLine: {'line': b'Installing PID_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
+[1.309210] (Robowarepkg) StdoutLine: {'line': b'Installing RealSense_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
+[1.309389] (Robowarepkg) StdoutLine: {'line': b'Installing Roboware_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
+[1.309519] (Robowarepkg) StdoutLine: {'line': b'Installing serial_read_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
+[1.309615] (Robowarepkg) StdoutLine: {'line': b'Installing serial_send_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
+[1.309708] (Robowarepkg) StdoutLine: {'line': b'Installing web_socket_node script to /home/altair/Roboware/install/Robowarepkg/lib/Robowarepkg\n'}
+[1.309820] (Robowarepkg) StdoutLine: {'line': b"writing list of installed files to '/home/altair/Roboware/build/Robowarepkg/install.log'\n"}
+[1.373351] (Robowarepkg) CommandEnded: {'returncode': 0}
+[1.381195] (Robowarepkg) JobEnded: {'identifier': 'Robowarepkg', 'rc': 0}
+[1.382011] (-) EventReactorShutdown: {}
