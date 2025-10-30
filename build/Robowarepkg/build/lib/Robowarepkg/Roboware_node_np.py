@@ -36,7 +36,7 @@ class RobowareNode(Node):
         self.initialize_csv()
 
         # タイマー設定
-        self.timer = self.create_timer(0.1, self.record_data)  # 0.1秒ごとに実行
+        #self.timer = self.create_timer(0.1, self.record_data)  # 0.1秒ごとに実行
         self.recording = False  # 記録中フラグ
 
     def initialize_csv(self):

@@ -1,4 +1,5 @@
 [console_scripts]
+FaceAnimation_node = Robowarepkg.FaceAnimation_node:main
 PID_node = Robowarepkg.PID_node:main
 RealSense_node = Robowarepkg.RealSense_node:main
 Roboware_node = Robowarepkg.Roboware_node:main

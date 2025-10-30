@@ -27,6 +27,7 @@ setup(
             'web_socket_node = Robowarepkg.web_socket_node:main',
             'RealSense_node = Robowarepkg.RealSense_node:main',
             'PID_node = Robowarepkg.PID_node:main',
+            'FaceAnimation_node = Robowarepkg.FaceAnimation_node:main',
         ],
     },
 )
