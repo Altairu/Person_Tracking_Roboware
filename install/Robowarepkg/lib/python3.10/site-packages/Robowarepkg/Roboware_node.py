@@ -28,12 +28,17 @@ class RobowareNode(Node):
         self.person_distance = 0.0
         self.person_offset = 0.0
         self.previous_offset = 0.0  # 前回のオフセット
-        self.kp_v = 5000.0  # Proportional gain for velocity
-        self.kp_omega = 50.0  # Proportional gain for angular velocity
+        self.kp_v = 2500.0  # Proportional gain for velocity
+        self.kp_omega = 1000.0  # Proportional gain for angular velocity
         self.kd_lambda = 0.1  # 最大微分ゲイン
         self.a = 0.1  # 動的微分ゲイン調整パラメータ
-        self.navigation_constant = 2.0  # Proportional navigation constant (N)
+        self.navigation_constant = 3.0  # Proportional navigation constant (N)
         self.dt = 0.1  # サンプリング間隔（秒）
+
+        # カメラの内部パラメータ
+        self.f_x = 378.09  # 焦点距離 (px)
+        self.c_x = 319.39  # 光学中心 (px)
+        self.T_x = 0.2     # カメラのロボットからのオフセット (m)
 
         # CSVファイルの設定
         self.csv_file = "new_MPN_data.csv"
@@ -75,10 +80,10 @@ class RobowareNode(Node):
                 self.recording = False  # 記録停止
                 self.get_logger().info("Emergency stop activated.")
             elif self.mode == 0:  # Control Mode (手動モード)
-                V = float((int(ry) - 106) * 200)
-                omega = float(-1 * (int(lx) - 102) * 100)
-                self.target_right = V + omega
-                self.target_left = V - omega
+                V = float(-(int(ry) - 106) * 100)
+                omega = float( (int(lx) - 102) * 50)
+                self.target_right = V - omega
+                self.target_left = V + omega
                 self.recording = False  # 記録停止
             elif self.mode == 1:  # Follow Mode (画像処理モード)
                 self.follow_person()
@@ -92,9 +97,22 @@ class RobowareNode(Node):
 
     def position_callback(self, msg):
         if len(msg.data) == 2:  # Assuming message contains [distance, offset]
-            self.person_distance = msg.data[0]
-            self.person_offset = msg.data[1]
-            self.get_logger().info(f"Updated position: Distance={self.person_distance}, Offset={self.person_offset}")
+            # 入力データ
+            depth = msg.data[0]  # デプスデータ (m)
+            pixel_offset = msg.data[1]  # 水平方向のピクセルオフセット (px)
+
+            # カメラ座標系での計算
+            X_c = (pixel_offset * depth) / self.f_x  # 水平方向距離
+            Y_c = depth  # 奥行き方向の距離
+
+            # ロボット座標系への変換
+            X_r = X_c + self.T_x
+            Y_r = Y_c
+
+            # 更新
+            self.person_distance = Y_r
+            self.person_offset = X_r
+            self.get_logger().info(f"Updated position: X_r={X_r:.2f}, Y_r={Y_r:.2f}")
         else:
             self.get_logger().warn("Invalid position data received.")
 
@@ -116,9 +134,6 @@ class RobowareNode(Node):
         )
 
         # Clamp the values to maximum limits
-        #V = max(min(V, 30000.0), -30000.0)  # Max forward/backward velocity
-        #omega = max(min(omega, 15000.0), -15000.0)  # Max rotational velocity
-
         V = max(min(V, 50000.0), -50000.0)  # Max forward/backward velocity
         omega = max(min(omega, 30000.0), -30000.0)  # Max rotational velocity
 
@@ -126,8 +141,8 @@ class RobowareNode(Node):
         self.current_omega = omega
 
         # Calculate target velocities for left and right wheels
-        self.target_right = V + omega
-        self.target_left = V - omega
+        self.target_right = -(V - omega)
+        self.target_left = -(V + omega)
 
         # 前回の偏差を更新
         self.previous_offset = self.person_offset

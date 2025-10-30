@@ -3,12 +3,14 @@ from rclpy.node import Node
 from std_msgs.msg import Float32MultiArray
 
 class PIDController:
-    def __init__(self, kp, ki, kd):
+    def __init__(self, kp, ki, kd, tau=0.01):
         self.kp = kp
         self.ki = ki
         self.kd = kd
+        self.tau = tau  # ローパスフィルタの時定数
         self.prev_error = 0.0
         self.integral = 0.0
+        self.prev_derivative = 0.0  # ローパスフィルタ用の前回の微分値
 
     def compute(self, target, current, dt):
         if target == 0.0 and current == 0.0:
@@ -17,7 +19,11 @@ class PIDController:
 
         error = target - current
         self.integral += error * dt
-        derivative = (error - self.prev_error) / dt
+
+        # 微分項を計算してローパスフィルタを適用
+        raw_derivative = (error - self.prev_error) / dt
+        derivative = (self.tau * self.prev_derivative + dt * raw_derivative) / (self.tau + dt)
+        self.prev_derivative = derivative
         self.prev_error = error
 
         return self.kp * error + self.ki * self.integral + self.kd * derivative
@@ -25,6 +31,7 @@ class PIDController:
     def reset(self):
         self.prev_error = 0.0
         self.integral = 0.0
+        self.prev_derivative = 0.0
 
 class PIDNode(Node):
     def __init__(self):
@@ -34,8 +41,8 @@ class PIDNode(Node):
         self.create_subscription(Float32MultiArray, 'wheel_feedback', self.feedback_callback, 10)
         self.pub = self.create_publisher(Float32MultiArray, 'wheel_controls', 10)
 
-        self.pid_right = PIDController(kp=0.003, ki=0.00005, kd=0.0)
-        self.pid_left = PIDController(kp=0.003, ki=0.00005, kd=0.0)
+        self.pid_right = PIDController(kp=0.005, ki=0.0, kd=0.0004, tau=0.01)
+        self.pid_left = PIDController(kp=0.005, ki=0.0, kd=0.0004, tau=0.01)
 
         self.target_right = 0.0
         self.target_left = 0.0

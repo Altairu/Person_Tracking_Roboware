@@ -18,6 +18,10 @@ class RealSenseNode(Node):
         config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
         self.pipeline.start(config)
 
+        # ウィンドウをフルスクリーンで表示する設定
+        cv2.namedWindow("RealSense Detection", cv2.WINDOW_NORMAL)
+        cv2.setWindowProperty("RealSense Detection", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+
         # YOLOモデルロード
         self.model = torch.hub.load('/home/altair/Roboware/ultralytics/yolov5', 'custom', 
                                     path='/home/altair/Roboware/ultralytics/yolov5/yolov5s.pt', 
