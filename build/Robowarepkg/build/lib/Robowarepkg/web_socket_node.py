@@ -11,7 +11,7 @@ from socket import SO_REUSEADDR, SOL_SOCKET, socket
 
 
 # IPアドレスとポートの指定
-ipadress_ = '10.146.245.212'
+ipadress_ = '10.53.255.212'
 port_ = 8080
 
 # HTMLファイルのパス
