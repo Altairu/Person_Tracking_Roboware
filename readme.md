@@ -56,11 +56,18 @@ source install/setup.bash
 
 ## セットアップ
 
+`src/` と `install/` が並んでいるワークスペースルートで実行する。
+
 ```bash
-cd ~/Roboware   # Person_Tracking_Roboware のルート
+# リポジトリをクローンした場所に応じてパスは変わる
+cd ~/Person_Tracking_Roboware   # src/ install/ build/ が直下にあるディレクトリ
+
 colcon build --packages-select Robowarepkg
 source install/setup.bash
 ```
+
+> ワークスペースルートとは `src/` フォルダが直下にある場所のこと。
+> `src/Robowarepkg/Robowarepkg/` (ソースの中) で実行しても `install/` が生成されないので動かない。
 
 ---
 
