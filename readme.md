@@ -40,34 +40,28 @@ graph LR
 
 ## 依存パッケージ
 
-altair_framework が事前にビルド・ソース済みであること。
-- altair_can_bridge: CAN 物理層との橋渡し (USB-CAN / Ethernet-CAN 対応)
-- altair_interfaces: CAN 関連メッセージ型
-- can_msgs: ROS2 標準 CAN フレームメッセージ
+以下の 3 パッケージは `src/` に同梱済みなので、別途 altair_framework をビルドする必要はない。
 
-```bash
-# altair_framework 側でビルド (初回のみ)
-cd ~/altair_framework
-colcon build
-source install/setup.bash
-```
+- `src/can_msgs`: CAN フレームメッセージ型
+- `src/altair_interfaces`: CanStatus / MddFeedback など Altair 固有メッセージ型
+- `src/altair_can_bridge`: USB-CAN アダプタ (slcan) と ROS2 を橋渡しする C++ ノード
 
 ---
 
 ## セットアップ
 
-`src/` と `install/` が並んでいるワークスペースルートで実行する。
+`src/` が直下にあるワークスペースルートで実行する。
+`--packages-select` を省略すると同梱の CAN パッケージもまとめてビルドされる。
 
 ```bash
-# リポジトリをクローンした場所に応じてパスは変わる
 cd ~/Person_Tracking_Roboware   # src/ install/ build/ が直下にあるディレクトリ
 
-colcon build --packages-select Robowarepkg
+colcon build
 source install/setup.bash
 ```
 
 > ワークスペースルートとは `src/` フォルダが直下にある場所のこと。
-> `src/Robowarepkg/Robowarepkg/` (ソースの中) で実行しても `install/` が生成されないので動かない。
+> `src/Robowarepkg/Robowarepkg/` (ソースの中) で実行しても動かない。
 
 ---
 
@@ -75,24 +69,24 @@ source install/setup.bash
 
 ### 一括起動 (推奨)
 
-WezTerm が必要。各ノードが別タブで起動される。
-
 ```bash
-cd ~/Roboware
+cd ~/Person_Tracking_Roboware
 bash start_all_nodes.sh
 ```
 
-起動されるノード:
-- RealSense_node
-- web_socket_node
-- Roboware_node
-- can_node
-- FaceAnimation_node
+ビルドと `ros2 launch` を自動で行う。全ノードが同一ターミナルで起動する。
 
-### 手動起動 (個別)
+### launch だけ実行 (ビルド済みの場合)
 
 ```bash
-# 別ターミナルでそれぞれ実行
+source install/setup.bash
+ros2 launch Robowarepkg roboware.launch.py
+```
+
+### 手動起動 (個別デバッグ用)
+
+```bash
+ros2 run altair_can_bridge can_bridge_node
 ros2 run Robowarepkg RealSense_node
 ros2 run Robowarepkg web_socket_node
 ros2 run Robowarepkg Roboware_node
