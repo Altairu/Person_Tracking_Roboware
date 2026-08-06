@@ -1,0 +1,36 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from altair_interfaces/msg/MddFeedback.msg
+// generated code does not contain a copyright notice
+
+
+module altair_interfaces {
+  module msg {
+    typedef boolean boolean__4[4];
+    typedef float float__4[4];
+    @verbatim (language="comment", text=
+      "MDD (モータドライバ) のフィードバック情報メッセージ定義")
+    struct MddFeedback {
+      @verbatim (language="comment", text=
+        "Limit SW1 - SW4 の状態 (True = ON / 押されている, False = OFF)")
+      boolean__4 limit_switches;
+
+      @verbatim (language="comment", text=
+        "システムエラーコード (0:正常, 1:初期化タイムアウト, 2:CAN受信タイムアウト, 4:送信失敗)")
+      uint8 error_code;
+
+      @verbatim (language="comment", text=
+        "システム動作状態 (0: パラメータ設定モード, 1: 制御実行モード)")
+      uint8 system_status;
+
+      @verbatim (language="comment", text=
+        "モータ1〜4の現在角度 (生データの 0.1 deg 単位を変換)")
+      @unit (value="degree")
+      float__4 angles;
+
+      @verbatim (language="comment", text=
+        "モータ1〜4の現在回転速度 (生データの 0.01 rps 単位を変換)")
+      @unit (value="rps")
+      float__4 speeds;
+    };
+  };
+};

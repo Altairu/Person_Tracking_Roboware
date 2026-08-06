@@ -1,0 +1,14 @@
+{
+  "package_name": "altair_interfaces",
+  "non_idl_tuples": [
+    "/home/altair/Person_Tracking_Roboware/src/altair_interfaces:msg/CanStatus.msg",
+    "/home/altair/Person_Tracking_Roboware/src/altair_interfaces:msg/MddFeedback.msg",
+    "/home/altair/Person_Tracking_Roboware/src/altair_interfaces:msg/MddCommand.msg",
+    "/home/altair/Person_Tracking_Roboware/src/altair_interfaces:msg/ServoCommand.msg",
+    "/home/altair/Person_Tracking_Roboware/src/altair_interfaces:msg/SolenoidCommand.msg",
+    "/home/altair/Person_Tracking_Roboware/src/altair_interfaces:srv/TriggerControl.srv",
+    "/home/altair/Person_Tracking_Roboware/src/altair_interfaces:srv/GetAvailablePorts.srv",
+    "/home/altair/Person_Tracking_Roboware/src/altair_interfaces:srv/ConnectCan.srv",
+    "/home/altair/Person_Tracking_Roboware/src/altair_interfaces:srv/StartBehavior.srv"
+  ]
+}

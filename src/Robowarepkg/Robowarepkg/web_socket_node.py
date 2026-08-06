@@ -14,11 +14,11 @@ import uvicorn
 
 
 # IPアドレスとポートの指定
-ipadress_ = '10.53.255.212'
+ipadress_ = '0.0.0.0'
 port_ = 8080
 
 # HTMLファイルのパス
-path = '/home/altair/Roboware/UI.txt'
+path = '/home/altair/Person_Tracking_Roboware/UI.txt'
 
 # mdd_params.json のパス
 _MDD_PARAMS_PATH = os.path.join(

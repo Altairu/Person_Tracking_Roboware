@@ -83,7 +83,7 @@ class RobowareNode(Node):
                 V = float(-(int(ry) - 106) * 100)
                 omega = float( (int(lx) - 102) * 50)
                 self.target_right = V - omega
-                self.target_left = V + omega
+                self.target_left = -(V + omega)
                 self.recording = False  # 記録停止
             elif self.mode == 1:  # Follow Mode (画像処理モード)
                 self.follow_person()
@@ -141,7 +141,7 @@ class RobowareNode(Node):
         self.current_omega = omega
 
         # Calculate target velocities for left and right wheels
-        self.target_right = -(V - omega)
+        self.target_right = V - omega
         self.target_left = -(V + omega)
 
         # 前回の偏差を更新

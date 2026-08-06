@@ -263,7 +263,8 @@
 
         // --- WebSocket 接続 ---
         function connectWebSocket() {
-            websocket = new WebSocket("ws://10.53.255.212:8080/ws");
+            const wsProtocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+            websocket = new WebSocket(wsProtocol + window.location.host + '/ws');
 
             websocket.onopen = function () {
                 document.getElementById('ws-status').innerText = "WebSocket: 接続済み";

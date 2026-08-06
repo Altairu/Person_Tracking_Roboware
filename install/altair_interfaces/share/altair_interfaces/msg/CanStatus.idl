@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from altair_interfaces/msg/CanStatus.msg
+// generated code does not contain a copyright notice
+
+
+module altair_interfaces {
+  module msg {
+    @verbatim (language="comment", text=
+      "USB-to-CAN（slcan）の接続状態を保持するメッセージ定義")
+    struct CanStatus {
+      @verbatim (language="comment", text=
+        "物理CANインターフェース(can0)が正常にUPしているか")
+      boolean is_connected;
+
+      @verbatim (language="comment", text=
+        "現在接続されている物理ポート名 (例: \"/dev/ttyACM0\")")
+      string active_port;
+
+      @verbatim (language="comment", text=
+        "現在のビットレート (例: 1000000)")
+      uint32 bitrate;
+
+      @verbatim (language="comment", text=
+        "接続失敗時や切断時のエラーメッセージ")
+      string error_message;
+    };
+  };
+};

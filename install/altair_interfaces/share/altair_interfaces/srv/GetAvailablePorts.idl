@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from altair_interfaces/srv/GetAvailablePorts.srv
+// generated code does not contain a copyright notice
+
+
+module altair_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "NUC側の認識している利用可能なシリアルポート（/dev/ttyACM* など）一覧を取得するサービス")
+    struct GetAvailablePorts_Request {
+      uint8 structure_needs_at_least_one_member;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct GetAvailablePorts_Response {
+      @verbatim (language="comment", text=
+        "検出されたポート名（パス）の配列")
+      sequence<string> ports;
+    };
+  };
+};

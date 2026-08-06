@@ -16,9 +16,11 @@ Robowarepkg/Roboware_node_mpn.py
 Robowarepkg/Roboware_node_newmpn.py
 Robowarepkg/Roboware_node_np.py
 Robowarepkg/__init__.py
+Robowarepkg/can_node.py
 Robowarepkg/serial_read_node.py
 Robowarepkg/serial_send_node.py
 Robowarepkg/web_socket_node.py
+launch/roboware.launch.py
 resource/Robowarepkg
 test/test_copyright.py
 test/test_flake8.py

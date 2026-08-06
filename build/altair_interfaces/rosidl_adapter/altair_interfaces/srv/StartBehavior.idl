@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from altair_interfaces/srv/StartBehavior.srv
+// generated code does not contain a copyright notice
+
+
+module altair_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "特定の動作プログラムを動的に起動するためのサービス")
+    struct StartBehavior_Request {
+      @verbatim (language="comment", text=
+        "起動するスクリプトファイル名 (例: \"example_behavior.py\")")
+      string behavior_name;
+    };
+    struct StartBehavior_Response {
+      @verbatim (language="comment", text=
+        "プロセスの起動が成功したか")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "結果のステータスメッセージやエラー内容")
+      string message;
+    };
+  };
+};

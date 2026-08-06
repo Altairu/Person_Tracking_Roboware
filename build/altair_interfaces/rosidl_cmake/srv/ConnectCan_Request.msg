@@ -1,0 +1,5 @@
+# 手動によるポート指定接続、または自動検出接続を指示するサービス
+
+# Request
+string port             # 接続するシリアルポート名 (例: "/dev/ttyACM0")
+bool auto_connect       # 自動接続（探索）モードを有効にするか (Trueで有効。その場合port引数は無視される)

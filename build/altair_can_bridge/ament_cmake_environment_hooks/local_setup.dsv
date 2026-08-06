@@ -1,0 +1,2 @@
+source;share/altair_can_bridge/environment/ament_prefix_path.sh
+source;share/altair_can_bridge/environment/path.sh

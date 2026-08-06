@@ -1,0 +1,47 @@
+[1.459s] Invoking command in '/home/altair/Person_Tracking_Roboware/src/Robowarepkg': AMENT_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces LD_LIBRARY_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/lib:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/altair/Person_Tracking_Roboware/build/Robowarepkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages:/home/altair/Person_Tracking_Roboware/install/can_msgs/local/lib/python3.10/dist-packages:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/Robowarepkg build --build-base /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build install --record /home/altair/Person_Tracking_Roboware/build/Robowarepkg/install.log --install-scripts $base/lib/Robowarepkg --single-version-externally-managed install_data
+[1.866s] running egg_info
+[1.897s] writing ../../build/Robowarepkg/Robowarepkg.egg-info/PKG-INFO
+[1.897s] writing dependency_links to ../../build/Robowarepkg/Robowarepkg.egg-info/dependency_links.txt
+[1.898s] writing entry points to ../../build/Robowarepkg/Robowarepkg.egg-info/entry_points.txt
+[1.898s] writing requirements to ../../build/Robowarepkg/Robowarepkg.egg-info/requires.txt
+[1.898s] writing top-level names to ../../build/Robowarepkg/Robowarepkg.egg-info/top_level.txt
+[1.956s] reading manifest file '../../build/Robowarepkg/Robowarepkg.egg-info/SOURCES.txt'
+[1.958s] writing manifest file '../../build/Robowarepkg/Robowarepkg.egg-info/SOURCES.txt'
+[1.958s] running build
+[1.959s] running build_py
+[1.959s] copying Robowarepkg/serial_read_node.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.959s] copying Robowarepkg/FaceAnimation_node.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.959s] copying Robowarepkg/web_socket_node.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.960s] copying Robowarepkg/__init__.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.960s] copying Robowarepkg/Roboware_node_mpn.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.960s] copying Robowarepkg/RealSense_node.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.960s] copying Robowarepkg/Roboware_node_newmpn.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.961s] copying Robowarepkg/Roboware_node.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.961s] copying Robowarepkg/PID_node.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.962s] copying Robowarepkg/Roboware_node_np.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.962s] copying Robowarepkg/serial_send_node.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.962s] copying Robowarepkg/can_node.py -> /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg
+[1.963s] running install
+[1.972s] running install_lib
+[2.003s] copying /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg/web_socket_node.py -> /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
+[2.003s] copying /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build/lib/Robowarepkg/RealSense_node.py -> /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg
+[2.004s] byte-compiling /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/web_socket_node.py to web_socket_node.cpython-310.pyc
+[2.006s] byte-compiling /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg/RealSense_node.py to RealSense_node.cpython-310.pyc
+[2.007s] running install_data
+[2.007s] copying resource/Robowarepkg -> /home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/ament_index/resource_index/packages
+[2.007s] copying package.xml -> /home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg
+[2.008s] copying launch/roboware.launch.py -> /home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/launch
+[2.008s] running install_egg_info
+[2.039s] removing '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info' (and everything under it)
+[2.039s] Copying ../../build/Robowarepkg/Robowarepkg.egg-info to /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages/Robowarepkg-0.0.0-py3.10.egg-info
+[2.040s] running install_scripts
+[2.285s] Installing FaceAnimation_node script to /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/Robowarepkg
+[2.286s] Installing PID_node script to /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/Robowarepkg
+[2.286s] Installing RealSense_node script to /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/Robowarepkg
+[2.286s] Installing Roboware_node script to /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/Robowarepkg
+[2.286s] Installing can_node script to /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/Robowarepkg
+[2.286s] Installing serial_read_node script to /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/Robowarepkg
+[2.287s] Installing serial_send_node script to /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/Robowarepkg
+[2.287s] Installing web_socket_node script to /home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/Robowarepkg
+[2.288s] writing list of installed files to '/home/altair/Person_Tracking_Roboware/build/Robowarepkg/install.log'
+[2.316s] Invoked command in '/home/altair/Person_Tracking_Roboware/src/Robowarepkg' returned '0': AMENT_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces LD_LIBRARY_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/lib:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/altair/Person_Tracking_Roboware/build/Robowarepkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages:/home/altair/Person_Tracking_Roboware/install/can_msgs/local/lib/python3.10/dist-packages:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/Robowarepkg build --build-base /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build install --record /home/altair/Person_Tracking_Roboware/build/Robowarepkg/install.log --install-scripts $base/lib/Robowarepkg --single-version-externally-managed install_data

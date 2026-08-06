@@ -1,0 +1,35 @@
+{
+  "package_name": "altair_interfaces",
+  "output_dir": "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_typesupport_fastrtps_c/altair_interfaces",
+  "template_dir": "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource",
+  "idl_tuples": [
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces:msg/CanStatus.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces:msg/MddFeedback.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces:msg/MddCommand.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces:msg/ServoCommand.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces:msg/SolenoidCommand.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces:srv/TriggerControl.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces:srv/GetAvailablePorts.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces:srv/ConnectCan.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces:srv/StartBehavior.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/humble/lib/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_typesupport_fastrtps_c/__init__.py",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/idl__rosidl_typesupport_fastrtps_c.h.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/idl__type_support_c.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/msg__rosidl_typesupport_fastrtps_c.h.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/msg__type_support_c.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__rosidl_typesupport_fastrtps_c.h.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__type_support_c.cpp.em",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces/msg/CanStatus.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces/msg/MddFeedback.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces/msg/MddCommand.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces/msg/ServoCommand.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces/msg/SolenoidCommand.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces/srv/TriggerControl.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces/srv/GetAvailablePorts.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces/srv/ConnectCan.idl",
+    "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/rosidl_adapter/altair_interfaces/srv/StartBehavior.idl"
+  ]
+}

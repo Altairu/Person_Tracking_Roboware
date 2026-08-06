@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_xml_model.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>altair_can_bridge</name>
+  <version>1.0.0</version>
+  <description>NUC側：USBポート自動探索とSocketCAN (slcan) ⇔ ROS2 raw CAN ブリッジノード</description>
+  <maintainer email="106no@users.noreply.github.com">USER</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>can_msgs</depend>
+  <depend>altair_interfaces</depend>
+  <depend>ament_index_cpp</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

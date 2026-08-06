@@ -23,8 +23,8 @@ class RealSenseNode(Node):
         cv2.setWindowProperty("RealSense Detection", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
         # YOLOモデルロード
-        self.model = torch.hub.load('/home/altair/Roboware/ultralytics/yolov5', 'custom', 
-                                    path='/home/altair/Roboware/ultralytics/yolov5/yolov5s.pt', 
+        self.model = torch.hub.load('/home/altair/Person_Tracking_Roboware/yolov5', 'custom', 
+                                    path='/home/altair/Person_Tracking_Roboware/yolov5/yolov5s.pt', 
                                     source='local')
         self.create_timer(0.1, self.process_frames)
 

@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from altair_interfaces/srv/ConnectCan.srv
+// generated code does not contain a copyright notice
+
+
+module altair_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "手動によるポート指定接続、または自動検出接続を指示するサービス")
+    struct ConnectCan_Request {
+      @verbatim (language="comment", text=
+        "Request" "\n"
+        "接続するシリアルポート名 (例: \"/dev/ttyACM0\")")
+      string port;
+
+      @verbatim (language="comment", text=
+        "自動接続（探索）モードを有効にするか (Trueで有効。その場合port引数は無視される)")
+      boolean auto_connect;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct ConnectCan_Response {
+      @verbatim (language="comment", text=
+        "接続（slcan起動 ＆ インターフェースUP）が成功したか")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "結果のステータスメッセージやエラー内容")
+      string message;
+    };
+  };
+};

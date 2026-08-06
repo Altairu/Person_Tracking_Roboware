@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from altair_interfaces/msg/MddCommand.msg
+// generated code does not contain a copyright notice
+
+
+module altair_interfaces {
+  module msg {
+    typedef float float__4[4];
+    @verbatim (language="comment", text=
+      "MDD (モータドライバ) の目標値指令メッセージ定義")
+    struct MddCommand {
+      @verbatim (language="comment", text=
+        "モータ1〜4の目標値" "\n"
+        "【単位スケール】" "\n"
+        "速度モード: rps" "\n"
+        "角度モード: degree (度)" "\n"
+        "位置モード: mm (ミリメートル)" "\n"
+        "(※ NUCブリッジ側で、マイコン用のスケール(各10倍のint16)に自動変換して送信されます)")
+      float__4 targets;
+    };
+  };
+};

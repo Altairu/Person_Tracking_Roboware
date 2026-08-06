@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "altair_interfaces__rs",
+		"source" : "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/altair_interfaces__rs"
+	}
+}

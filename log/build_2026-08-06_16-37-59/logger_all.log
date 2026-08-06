@@ -1,0 +1,713 @@
+[0.134s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.134s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7907d90b7a00>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7907d90b74c0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7907d90b74c0>>, mixin_verb=('build',))
+[0.179s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.180s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.180s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.180s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.180s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.180s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.180s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/altair/Person_Tracking_Roboware'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extensions ['ignore', 'ignore_ament_install']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extension 'ignore'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extension 'ignore_ament_install'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extensions ['colcon_pkg']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extension 'colcon_pkg'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extensions ['colcon_meta']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extension 'colcon_meta'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extensions ['ros']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extension 'ros'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extensions ['cmake', 'python']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extension 'cmake'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extension 'python'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extensions ['python_setup_py']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU) by extension 'python_setup_py'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extension 'ignore_ament_install'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extensions ['colcon_pkg']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extension 'colcon_pkg'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extensions ['colcon_meta']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extension 'colcon_meta'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extensions ['ros']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extension 'ros'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extensions ['cmake', 'python']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extension 'cmake'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extension 'python'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extensions ['python_setup_py']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense) by extension 'python_setup_py'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extension 'ignore_ament_install'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extensions ['colcon_pkg']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extension 'colcon_pkg'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extensions ['colcon_meta']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extension 'colcon_meta'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extensions ['ros']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extension 'ros'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extensions ['cmake', 'python']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extension 'cmake'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extension 'python'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extensions ['python_setup_py']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(IMU/spresense/math_lib) by extension 'python_setup_py'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/Robowarepkg) by extensions ['ignore', 'ignore_ament_install']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/Robowarepkg) by extension 'ignore'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/Robowarepkg) by extension 'ignore_ament_install'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/Robowarepkg) by extensions ['colcon_pkg']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/Robowarepkg) by extension 'colcon_pkg'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/Robowarepkg) by extensions ['colcon_meta']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/Robowarepkg) by extension 'colcon_meta'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/Robowarepkg) by extensions ['ros']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/Robowarepkg) by extension 'ros'
+[0.204s] DEBUG:colcon.colcon_core.package_identification:Package 'src/Robowarepkg' with type 'ros.ament_python' and name 'Robowarepkg'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_can_bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_can_bridge) by extension 'ignore'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_can_bridge) by extension 'ignore_ament_install'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_can_bridge) by extensions ['colcon_pkg']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_can_bridge) by extension 'colcon_pkg'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_can_bridge) by extensions ['colcon_meta']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_can_bridge) by extension 'colcon_meta'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_can_bridge) by extensions ['ros']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_can_bridge) by extension 'ros'
+[0.206s] DEBUG:colcon.colcon_core.package_identification:Package 'src/altair_can_bridge' with type 'ros.ament_cmake' and name 'altair_can_bridge'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_interfaces) by extension 'ignore'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_interfaces) by extension 'ignore_ament_install'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_interfaces) by extensions ['colcon_pkg']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_interfaces) by extension 'colcon_pkg'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_interfaces) by extensions ['colcon_meta']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_interfaces) by extension 'colcon_meta'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_interfaces) by extensions ['ros']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(src/altair_interfaces) by extension 'ros'
+[0.208s] DEBUG:colcon.colcon_core.package_identification:Package 'src/altair_interfaces' with type 'ros.ament_cmake' and name 'altair_interfaces'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_msgs) by extension 'ignore'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_msgs) by extension 'ignore_ament_install'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_msgs) by extensions ['colcon_pkg']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_msgs) by extension 'colcon_pkg'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_msgs) by extensions ['colcon_meta']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_msgs) by extension 'colcon_meta'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_msgs) by extensions ['ros']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(src/can_msgs) by extension 'ros'
+[0.209s] DEBUG:colcon.colcon_core.package_identification:Package 'src/can_msgs' with type 'ros.ament_cmake' and name 'can_msgs'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extensions ['ignore', 'ignore_ament_install']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extension 'ignore'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extension 'ignore_ament_install'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extensions ['colcon_pkg']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extension 'colcon_pkg'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extensions ['colcon_meta']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extension 'colcon_meta'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extensions ['ros']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extension 'ros'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extensions ['cmake', 'python']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extension 'cmake'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extension 'python'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extensions ['python_setup_py']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics) by extension 'python_setup_py'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extensions ['ignore', 'ignore_ament_install']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extension 'ignore'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extension 'ignore_ament_install'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extensions ['colcon_pkg']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extension 'colcon_pkg'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extensions ['colcon_meta']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extension 'colcon_meta'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extensions ['ros']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extension 'ros'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extensions ['cmake', 'python']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extension 'cmake'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extension 'python'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extensions ['python_setup_py']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ultralytics/yolov5) by extension 'python_setup_py'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extensions ['ignore', 'ignore_ament_install']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extension 'ignore'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extension 'ignore_ament_install'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extensions ['colcon_pkg']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extension 'colcon_pkg'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extensions ['colcon_meta']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extension 'colcon_meta'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extensions ['ros']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extension 'ros'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extensions ['cmake', 'python']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extension 'cmake'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extension 'python'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extensions ['python_setup_py']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5) by extension 'python_setup_py'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extension 'ignore'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extension 'ignore_ament_install'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extensions ['colcon_pkg']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extension 'colcon_pkg'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extensions ['colcon_meta']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extension 'colcon_meta'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extensions ['ros']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extension 'ros'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extensions ['cmake', 'python']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extension 'cmake'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extension 'python'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extensions ['python_setup_py']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/__pycache__) by extension 'python_setup_py'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extensions ['ignore', 'ignore_ament_install']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extension 'ignore'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extension 'ignore_ament_install'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extensions ['colcon_pkg']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extension 'colcon_pkg'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extensions ['colcon_meta']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extension 'colcon_meta'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extensions ['ros']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extension 'ros'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extensions ['cmake', 'python']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extension 'cmake'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extension 'python'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extensions ['python_setup_py']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/classify) by extension 'python_setup_py'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extensions ['ignore', 'ignore_ament_install']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extension 'ignore'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extension 'ignore_ament_install'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extensions ['colcon_pkg']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extension 'colcon_pkg'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extensions ['colcon_meta']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extension 'colcon_meta'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extensions ['ros']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extension 'ros'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extensions ['cmake', 'python']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extension 'cmake'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extension 'python'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extensions ['python_setup_py']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data) by extension 'python_setup_py'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extensions ['ignore', 'ignore_ament_install']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extension 'ignore'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extension 'ignore_ament_install'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extensions ['colcon_pkg']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extension 'colcon_pkg'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extensions ['colcon_meta']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extension 'colcon_meta'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extensions ['ros']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extension 'ros'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extensions ['cmake', 'python']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extension 'cmake'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extension 'python'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extensions ['python_setup_py']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/hyps) by extension 'python_setup_py'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extensions ['ignore', 'ignore_ament_install']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extension 'ignore'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extension 'ignore_ament_install'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extensions ['colcon_pkg']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extension 'colcon_pkg'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extensions ['colcon_meta']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extension 'colcon_meta'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extensions ['ros']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extension 'ros'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extensions ['cmake', 'python']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extension 'cmake'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extension 'python'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extensions ['python_setup_py']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/images) by extension 'python_setup_py'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extension 'ignore'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extension 'ignore_ament_install'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extensions ['colcon_pkg']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extension 'colcon_pkg'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extensions ['colcon_meta']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extension 'colcon_meta'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extensions ['ros']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extension 'ros'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extensions ['cmake', 'python']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extension 'cmake'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extension 'python'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extensions ['python_setup_py']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/data/scripts) by extension 'python_setup_py'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extensions ['ignore', 'ignore_ament_install']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extension 'ignore'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extension 'ignore_ament_install'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extensions ['colcon_pkg']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extension 'colcon_pkg'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extensions ['colcon_meta']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extension 'colcon_meta'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extensions ['ros']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extension 'ros'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extensions ['cmake', 'python']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extension 'cmake'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extension 'python'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extensions ['python_setup_py']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models) by extension 'python_setup_py'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extension 'ignore'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extension 'ignore_ament_install'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extensions ['colcon_pkg']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extension 'colcon_pkg'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extensions ['colcon_meta']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extension 'colcon_meta'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extensions ['ros']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extension 'ros'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extensions ['cmake', 'python']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extension 'cmake'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extension 'python'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extensions ['python_setup_py']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/__pycache__) by extension 'python_setup_py'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extensions ['ignore', 'ignore_ament_install']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extension 'ignore'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extension 'ignore_ament_install'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extensions ['colcon_pkg']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extension 'colcon_pkg'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extensions ['colcon_meta']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extension 'colcon_meta'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extensions ['ros']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extension 'ros'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extensions ['cmake', 'python']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extension 'cmake'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extension 'python'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extensions ['python_setup_py']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/hub) by extension 'python_setup_py'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extensions ['ignore', 'ignore_ament_install']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extension 'ignore'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extension 'ignore_ament_install'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extensions ['colcon_pkg']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extension 'colcon_pkg'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extensions ['colcon_meta']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extension 'colcon_meta'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extensions ['ros']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extension 'ros'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extensions ['cmake', 'python']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extension 'cmake'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extension 'python'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extensions ['python_setup_py']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/models/segment) by extension 'python_setup_py'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extensions ['ignore', 'ignore_ament_install']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extension 'ignore'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extension 'ignore_ament_install'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extensions ['colcon_pkg']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extension 'colcon_pkg'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extensions ['colcon_meta']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extension 'colcon_meta'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extensions ['ros']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extension 'ros'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extensions ['cmake', 'python']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extension 'cmake'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extension 'python'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extensions ['python_setup_py']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/segment) by extension 'python_setup_py'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extensions ['ignore', 'ignore_ament_install']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extension 'ignore'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extension 'ignore_ament_install'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extensions ['colcon_pkg']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extension 'colcon_pkg'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extensions ['colcon_meta']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extension 'colcon_meta'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extensions ['ros']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extension 'ros'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extensions ['cmake', 'python']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extension 'cmake'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extension 'python'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extensions ['python_setup_py']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/tests) by extension 'python_setup_py'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extensions ['ignore', 'ignore_ament_install']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extension 'ignore'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extension 'ignore_ament_install'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extensions ['colcon_pkg']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extension 'colcon_pkg'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extensions ['colcon_meta']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extension 'colcon_meta'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extensions ['ros']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extension 'ros'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extensions ['cmake', 'python']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extension 'cmake'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extension 'python'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extensions ['python_setup_py']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils) by extension 'python_setup_py'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extension 'ignore'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extension 'ignore_ament_install'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extensions ['colcon_pkg']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extension 'colcon_pkg'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extensions ['colcon_meta']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extension 'colcon_meta'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extensions ['ros']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extension 'ros'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extensions ['cmake', 'python']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extension 'cmake'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extension 'python'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extensions ['python_setup_py']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/__pycache__) by extension 'python_setup_py'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extensions ['ignore', 'ignore_ament_install']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extension 'ignore'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extension 'ignore_ament_install'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extensions ['colcon_pkg']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extension 'colcon_pkg'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extensions ['colcon_meta']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extension 'colcon_meta'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extensions ['ros']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extension 'ros'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extensions ['cmake', 'python']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extension 'cmake'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extension 'python'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extensions ['python_setup_py']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/docker) by extension 'python_setup_py'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extensions ['ignore', 'ignore_ament_install']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extension 'ignore'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extension 'ignore_ament_install'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extensions ['colcon_pkg']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extension 'colcon_pkg'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extensions ['colcon_meta']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extension 'colcon_meta'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extensions ['ros']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extension 'ros'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extensions ['cmake', 'python']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extension 'cmake'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extension 'python'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extensions ['python_setup_py']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/flask_rest_api) by extension 'python_setup_py'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extensions ['ignore', 'ignore_ament_install']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extension 'ignore'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extension 'ignore_ament_install'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extensions ['colcon_pkg']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extension 'colcon_pkg'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extensions ['colcon_meta']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extension 'colcon_meta'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extensions ['ros']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extension 'ros'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extensions ['cmake', 'python']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extension 'cmake'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extension 'python'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extensions ['python_setup_py']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers) by extension 'python_setup_py'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extensions ['ignore', 'ignore_ament_install']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extension 'ignore'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extension 'ignore_ament_install'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extensions ['colcon_pkg']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extension 'colcon_pkg'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extensions ['colcon_meta']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extension 'colcon_meta'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extensions ['ros']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extension 'ros'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extensions ['cmake', 'python']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extension 'cmake'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extension 'python'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extensions ['python_setup_py']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/clearml) by extension 'python_setup_py'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extensions ['ignore', 'ignore_ament_install']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extension 'ignore'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extension 'ignore_ament_install'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extensions ['colcon_pkg']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extension 'colcon_pkg'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extensions ['colcon_meta']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extension 'colcon_meta'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extensions ['ros']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extension 'ros'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extensions ['cmake', 'python']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extension 'cmake'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extension 'python'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extensions ['python_setup_py']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/comet) by extension 'python_setup_py'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extensions ['ignore', 'ignore_ament_install']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extension 'ignore'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extension 'ignore_ament_install'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extensions ['colcon_pkg']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extension 'colcon_pkg'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extensions ['colcon_meta']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extension 'colcon_meta'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extensions ['ros']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extension 'ros'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extensions ['cmake', 'python']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extension 'cmake'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extension 'python'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extensions ['python_setup_py']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/loggers/wandb) by extension 'python_setup_py'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extensions ['ignore', 'ignore_ament_install']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extension 'ignore_ament_install'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extensions ['colcon_pkg']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extension 'colcon_pkg'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extensions ['colcon_meta']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extension 'colcon_meta'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extensions ['ros']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extension 'ros'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extensions ['cmake', 'python']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extension 'cmake'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extension 'python'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extensions ['python_setup_py']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(yolov5/utils/segment) by extension 'python_setup_py'
+[0.240s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.240s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.240s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.240s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.240s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.268s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.269s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.272s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 342 installed packages in /opt/ros/humble
+[0.273s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.326s] Level 5:colcon.colcon_core.verb:set package 'altair_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.326s] Level 5:colcon.colcon_core.verb:set package 'altair_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.326s] Level 5:colcon.colcon_core.verb:set package 'altair_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.326s] Level 5:colcon.colcon_core.verb:set package 'altair_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.326s] Level 5:colcon.colcon_core.verb:set package 'altair_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.326s] Level 5:colcon.colcon_core.verb:set package 'altair_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.326s] Level 5:colcon.colcon_core.verb:set package 'altair_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.326s] Level 5:colcon.colcon_core.verb:set package 'altair_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.326s] Level 5:colcon.colcon_core.verb:set package 'altair_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.326s] DEBUG:colcon.colcon_core.verb:Building package 'altair_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/altair/Person_Tracking_Roboware/build/altair_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/altair/Person_Tracking_Roboware/install/altair_interfaces', 'merge_install': False, 'path': '/home/altair/Person_Tracking_Roboware/src/altair_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.327s] Level 5:colcon.colcon_core.verb:set package 'can_msgs' build argument 'cmake_args' from command line to 'None'
+[0.327s] Level 5:colcon.colcon_core.verb:set package 'can_msgs' build argument 'cmake_target' from command line to 'None'
+[0.327s] Level 5:colcon.colcon_core.verb:set package 'can_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.327s] Level 5:colcon.colcon_core.verb:set package 'can_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.327s] Level 5:colcon.colcon_core.verb:set package 'can_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.327s] Level 5:colcon.colcon_core.verb:set package 'can_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.327s] Level 5:colcon.colcon_core.verb:set package 'can_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.327s] Level 5:colcon.colcon_core.verb:set package 'can_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.327s] Level 5:colcon.colcon_core.verb:set package 'can_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.328s] DEBUG:colcon.colcon_core.verb:Building package 'can_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/altair/Person_Tracking_Roboware/build/can_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/altair/Person_Tracking_Roboware/install/can_msgs', 'merge_install': False, 'path': '/home/altair/Person_Tracking_Roboware/src/can_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.328s] Level 5:colcon.colcon_core.verb:set package 'Robowarepkg' build argument 'cmake_args' from command line to 'None'
+[0.328s] Level 5:colcon.colcon_core.verb:set package 'Robowarepkg' build argument 'cmake_target' from command line to 'None'
+[0.328s] Level 5:colcon.colcon_core.verb:set package 'Robowarepkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.328s] Level 5:colcon.colcon_core.verb:set package 'Robowarepkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.328s] Level 5:colcon.colcon_core.verb:set package 'Robowarepkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.329s] Level 5:colcon.colcon_core.verb:set package 'Robowarepkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.329s] Level 5:colcon.colcon_core.verb:set package 'Robowarepkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.329s] Level 5:colcon.colcon_core.verb:set package 'Robowarepkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.329s] Level 5:colcon.colcon_core.verb:set package 'Robowarepkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.329s] DEBUG:colcon.colcon_core.verb:Building package 'Robowarepkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/altair/Person_Tracking_Roboware/build/Robowarepkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/altair/Person_Tracking_Roboware/install/Robowarepkg', 'merge_install': False, 'path': '/home/altair/Person_Tracking_Roboware/src/Robowarepkg', 'symlink_install': False, 'test_result_base': None}
+[0.329s] Level 5:colcon.colcon_core.verb:set package 'altair_can_bridge' build argument 'cmake_args' from command line to 'None'
+[0.330s] Level 5:colcon.colcon_core.verb:set package 'altair_can_bridge' build argument 'cmake_target' from command line to 'None'
+[0.330s] Level 5:colcon.colcon_core.verb:set package 'altair_can_bridge' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.330s] Level 5:colcon.colcon_core.verb:set package 'altair_can_bridge' build argument 'cmake_clean_cache' from command line to 'False'
+[0.330s] Level 5:colcon.colcon_core.verb:set package 'altair_can_bridge' build argument 'cmake_clean_first' from command line to 'False'
+[0.330s] Level 5:colcon.colcon_core.verb:set package 'altair_can_bridge' build argument 'cmake_force_configure' from command line to 'False'
+[0.330s] Level 5:colcon.colcon_core.verb:set package 'altair_can_bridge' build argument 'ament_cmake_args' from command line to 'None'
+[0.330s] Level 5:colcon.colcon_core.verb:set package 'altair_can_bridge' build argument 'catkin_cmake_args' from command line to 'None'
+[0.330s] Level 5:colcon.colcon_core.verb:set package 'altair_can_bridge' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.330s] DEBUG:colcon.colcon_core.verb:Building package 'altair_can_bridge' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/altair/Person_Tracking_Roboware/build/altair_can_bridge', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge', 'merge_install': False, 'path': '/home/altair/Person_Tracking_Roboware/src/altair_can_bridge', 'symlink_install': False, 'test_result_base': None}
+[0.330s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.331s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.332s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/altair/Person_Tracking_Roboware/src/altair_interfaces' with build type 'ament_cmake'
+[0.332s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/altair/Person_Tracking_Roboware/src/altair_interfaces'
+[0.335s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.335s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.335s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.340s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/altair/Person_Tracking_Roboware/src/can_msgs' with build type 'ament_cmake'
+[0.341s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/altair/Person_Tracking_Roboware/src/can_msgs'
+[0.342s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.342s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.358s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/altair/Person_Tracking_Roboware/build/altair_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/altair/Person_Tracking_Roboware/build/altair_interfaces -- -j8 -l8
+[0.364s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/altair/Person_Tracking_Roboware/build/can_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/altair/Person_Tracking_Roboware/build/can_msgs -- -j8 -l8
+[1.021s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/altair/Person_Tracking_Roboware/build/can_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/altair/Person_Tracking_Roboware/build/can_msgs -- -j8 -l8
+[1.027s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/altair/Person_Tracking_Roboware/build/can_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/altair/Person_Tracking_Roboware/build/can_msgs
+[1.028s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/altair/Person_Tracking_Roboware/build/altair_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/altair/Person_Tracking_Roboware/build/altair_interfaces -- -j8 -l8
+[1.030s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/altair/Person_Tracking_Roboware/build/altair_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/altair/Person_Tracking_Roboware/build/altair_interfaces
+[1.110s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(can_msgs)
+[1.119s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs' for CMake module files
+[1.120s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs' for CMake config files
+[1.123s] Level 1:colcon.colcon_core.shell:create_environment_hook('can_msgs', 'cmake_prefix_path')
+[1.123s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/cmake_prefix_path.ps1'
+[1.124s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/cmake_prefix_path.dsv'
+[1.125s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/altair/Person_Tracking_Roboware/build/can_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/altair/Person_Tracking_Roboware/build/can_msgs
+[1.126s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/cmake_prefix_path.sh'
+[1.127s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/lib'
+[1.128s] Level 1:colcon.colcon_core.shell:create_environment_hook('can_msgs', 'ld_library_path_lib')
+[1.128s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/ld_library_path_lib.ps1'
+[1.129s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/ld_library_path_lib.dsv'
+[1.130s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/ld_library_path_lib.sh'
+[1.130s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/bin'
+[1.130s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/lib/pkgconfig/can_msgs.pc'
+[1.131s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/lib/python3.10/site-packages'
+[1.131s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/bin'
+[1.132s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.ps1'
+[1.133s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.dsv'
+[1.135s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.sh'
+[1.137s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.bash'
+[1.138s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.zsh'
+[1.139s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/altair/Person_Tracking_Roboware/install/can_msgs/share/colcon-core/packages/can_msgs)
+[1.140s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(can_msgs)
+[1.140s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs' for CMake module files
+[1.141s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs' for CMake config files
+[1.141s] Level 1:colcon.colcon_core.shell:create_environment_hook('can_msgs', 'cmake_prefix_path')
+[1.142s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/cmake_prefix_path.ps1'
+[1.143s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/cmake_prefix_path.dsv'
+[1.143s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/cmake_prefix_path.sh'
+[1.144s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/lib'
+[1.144s] Level 1:colcon.colcon_core.shell:create_environment_hook('can_msgs', 'ld_library_path_lib')
+[1.145s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/ld_library_path_lib.ps1'
+[1.145s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/ld_library_path_lib.dsv'
+[1.146s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/hook/ld_library_path_lib.sh'
+[1.147s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/bin'
+[1.147s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/lib/pkgconfig/can_msgs.pc'
+[1.147s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/lib/python3.10/site-packages'
+[1.148s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/can_msgs/bin'
+[1.148s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.ps1'
+[1.149s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.dsv'
+[1.150s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.sh'
+[1.151s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.bash'
+[1.151s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/can_msgs/share/can_msgs/package.zsh'
+[1.152s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/altair/Person_Tracking_Roboware/install/can_msgs/share/colcon-core/packages/can_msgs)
+[1.160s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(altair_interfaces)
+[1.161s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces' for CMake module files
+[1.162s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces' for CMake config files
+[1.163s] Level 1:colcon.colcon_core.shell:create_environment_hook('altair_interfaces', 'cmake_prefix_path')
+[1.163s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/cmake_prefix_path.ps1'
+[1.164s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/altair/Person_Tracking_Roboware/build/altair_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/altair/Person_Tracking_Roboware/build/altair_interfaces
+[1.165s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/cmake_prefix_path.dsv'
+[1.166s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/cmake_prefix_path.sh'
+[1.166s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib'
+[1.167s] Level 1:colcon.colcon_core.shell:create_environment_hook('altair_interfaces', 'ld_library_path_lib')
+[1.167s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/ld_library_path_lib.ps1'
+[1.168s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/ld_library_path_lib.dsv'
+[1.168s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/ld_library_path_lib.sh'
+[1.169s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/bin'
+[1.169s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib/pkgconfig/altair_interfaces.pc'
+[1.169s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib/python3.10/site-packages'
+[1.170s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/bin'
+[1.170s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.ps1'
+[1.171s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.dsv'
+[1.172s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.sh'
+[1.173s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.bash'
+[1.173s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.zsh'
+[1.174s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/colcon-core/packages/altair_interfaces)
+[1.175s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(altair_interfaces)
+[1.175s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces' for CMake module files
+[1.176s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces' for CMake config files
+[1.177s] Level 1:colcon.colcon_core.shell:create_environment_hook('altair_interfaces', 'cmake_prefix_path')
+[1.178s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/cmake_prefix_path.ps1'
+[1.179s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/cmake_prefix_path.dsv'
+[1.180s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/cmake_prefix_path.sh'
+[1.181s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib'
+[1.181s] Level 1:colcon.colcon_core.shell:create_environment_hook('altair_interfaces', 'ld_library_path_lib')
+[1.182s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/ld_library_path_lib.ps1'
+[1.182s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/ld_library_path_lib.dsv'
+[1.183s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/hook/ld_library_path_lib.sh'
+[1.183s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/bin'
+[1.183s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib/pkgconfig/altair_interfaces.pc'
+[1.184s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib/python3.10/site-packages'
+[1.184s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/bin'
+[1.184s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.ps1'
+[1.185s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.dsv'
+[1.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.sh'
+[1.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.bash'
+[1.187s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/altair_interfaces/package.zsh'
+[1.188s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/altair/Person_Tracking_Roboware/install/altair_interfaces/share/colcon-core/packages/altair_interfaces)
+[1.188s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/altair/Person_Tracking_Roboware/src/Robowarepkg' with build type 'ament_python'
+[1.188s] Level 1:colcon.colcon_core.shell:create_environment_hook('Robowarepkg', 'ament_prefix_path')
+[1.189s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/hook/ament_prefix_path.ps1'
+[1.190s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/hook/ament_prefix_path.dsv'
+[1.190s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/hook/ament_prefix_path.sh'
+[1.191s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.192s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.199s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/altair/Person_Tracking_Roboware/src/altair_can_bridge' with build type 'ament_cmake'
+[1.200s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/altair/Person_Tracking_Roboware/src/altair_can_bridge'
+[1.200s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.201s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.520s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/altair/Person_Tracking_Roboware/src/Robowarepkg'
+[1.520s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.520s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.527s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/altair/Person_Tracking_Roboware/build/altair_can_bridge': AMENT_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/lib:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/local/lib/python3.10/dist-packages:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/altair/Person_Tracking_Roboware/build/altair_can_bridge -- -j8 -l8
+[1.577s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/altair/Person_Tracking_Roboware/build/altair_can_bridge' returned '0': AMENT_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/lib:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/local/lib/python3.10/dist-packages:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/altair/Person_Tracking_Roboware/build/altair_can_bridge -- -j8 -l8
+[1.579s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/altair/Person_Tracking_Roboware/build/altair_can_bridge': AMENT_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/lib:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/local/lib/python3.10/dist-packages:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/altair/Person_Tracking_Roboware/build/altair_can_bridge
+[1.586s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(altair_can_bridge)
+[1.587s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge' for CMake module files
+[1.588s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/altair/Person_Tracking_Roboware/build/altair_can_bridge' returned '0': AMENT_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/lib:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/local/lib/python3.10/dist-packages:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/altair/Person_Tracking_Roboware/build/altair_can_bridge
+[1.589s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge' for CMake config files
+[1.589s] Level 1:colcon.colcon_core.shell:create_environment_hook('altair_can_bridge', 'cmake_prefix_path')
+[1.589s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/hook/cmake_prefix_path.ps1'
+[1.590s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/hook/cmake_prefix_path.dsv'
+[1.590s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/hook/cmake_prefix_path.sh'
+[1.591s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/lib'
+[1.591s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/bin'
+[1.591s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/lib/pkgconfig/altair_can_bridge.pc'
+[1.592s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/lib/python3.10/site-packages'
+[1.592s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/bin'
+[1.593s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.ps1'
+[1.594s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.dsv'
+[1.594s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.sh'
+[1.595s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.bash'
+[1.595s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.zsh'
+[1.595s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/colcon-core/packages/altair_can_bridge)
+[1.596s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(altair_can_bridge)
+[1.596s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge' for CMake module files
+[1.597s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge' for CMake config files
+[1.597s] Level 1:colcon.colcon_core.shell:create_environment_hook('altair_can_bridge', 'cmake_prefix_path')
+[1.597s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/hook/cmake_prefix_path.ps1'
+[1.598s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/hook/cmake_prefix_path.dsv'
+[1.598s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/hook/cmake_prefix_path.sh'
+[1.599s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/lib'
+[1.599s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/bin'
+[1.599s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/lib/pkgconfig/altair_can_bridge.pc'
+[1.599s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/lib/python3.10/site-packages'
+[1.600s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/bin'
+[1.600s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.ps1'
+[1.600s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.dsv'
+[1.601s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.sh'
+[1.601s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.bash'
+[1.602s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/altair_can_bridge/package.zsh'
+[1.602s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/altair/Person_Tracking_Roboware/install/altair_can_bridge/share/colcon-core/packages/altair_can_bridge)
+[2.623s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_scripts, build_sphinx, editable_wheel, update_catalog, bdist, build_ext, install_lib, dist_info, install_scripts, bdist_dumb, check, init_catalog, alias, build, compile_catalog, develop, bdist_wheel, build_py, bdist_egg, sdist, install, easy_install, extract_messages, clean, install_egg_info, symlink_data, bdist_rpm, saveopts, install_headers, nosetests, install_data, setopt, build_clib, rotate, egg_info
+[2.625s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/altair/Person_Tracking_Roboware/src/Robowarepkg': AMENT_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces LD_LIBRARY_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/lib:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/altair/Person_Tracking_Roboware/build/Robowarepkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages:/home/altair/Person_Tracking_Roboware/install/can_msgs/local/lib/python3.10/dist-packages:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/Robowarepkg build --build-base /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build install --record /home/altair/Person_Tracking_Roboware/build/Robowarepkg/install.log --install-scripts $base/lib/Robowarepkg --single-version-externally-managed install_data
+[3.534s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/Robowarepkg' for CMake module files
+[3.534s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/altair/Person_Tracking_Roboware/src/Robowarepkg' returned '0': AMENT_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs:/home/altair/Person_Tracking_Roboware/install/altair_interfaces LD_LIBRARY_PATH=/home/altair/Person_Tracking_Roboware/install/can_msgs/lib:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/altair/Person_Tracking_Roboware/build/Robowarepkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages:/home/altair/Person_Tracking_Roboware/install/can_msgs/local/lib/python3.10/dist-packages:/home/altair/Person_Tracking_Roboware/install/altair_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/Robowarepkg build --build-base /home/altair/Person_Tracking_Roboware/build/Robowarepkg/build install --record /home/altair/Person_Tracking_Roboware/build/Robowarepkg/install.log --install-scripts $base/lib/Robowarepkg --single-version-externally-managed install_data
+[3.535s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/Robowarepkg' for CMake config files
+[3.535s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib'
+[3.536s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/bin'
+[3.536s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/pkgconfig/Robowarepkg.pc'
+[3.536s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/lib/python3.10/site-packages'
+[3.536s] Level 1:colcon.colcon_core.shell:create_environment_hook('Robowarepkg', 'pythonpath')
+[3.536s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/hook/pythonpath.ps1'
+[3.537s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/hook/pythonpath.dsv'
+[3.537s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/hook/pythonpath.sh'
+[3.538s] Level 1:colcon.colcon_core.environment:checking '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/bin'
+[3.538s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(Robowarepkg)
+[3.538s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/package.ps1'
+[3.539s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/package.dsv'
+[3.539s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/package.sh'
+[3.539s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/package.bash'
+[3.540s] INFO:colcon.colcon_core.shell:Creating package script '/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/Robowarepkg/package.zsh'
+[3.540s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/altair/Person_Tracking_Roboware/install/Robowarepkg/share/colcon-core/packages/Robowarepkg)
+[3.541s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.541s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.541s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.541s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.569s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.569s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.569s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.584s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.585s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/altair/Person_Tracking_Roboware/install/local_setup.ps1'
+[3.586s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/altair/Person_Tracking_Roboware/install/_local_setup_util_ps1.py'
+[3.587s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/altair/Person_Tracking_Roboware/install/setup.ps1'
+[3.588s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/altair/Person_Tracking_Roboware/install/local_setup.sh'
+[3.589s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/altair/Person_Tracking_Roboware/install/_local_setup_util_sh.py'
+[3.590s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/altair/Person_Tracking_Roboware/install/setup.sh'
+[3.591s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/altair/Person_Tracking_Roboware/install/local_setup.bash'
+[3.592s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/altair/Person_Tracking_Roboware/install/setup.bash'
+[3.593s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/altair/Person_Tracking_Roboware/install/local_setup.zsh'
+[3.594s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/altair/Person_Tracking_Roboware/install/setup.zsh'

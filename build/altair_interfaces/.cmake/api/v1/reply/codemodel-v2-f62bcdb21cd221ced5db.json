@@ -1,0 +1,258 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-2aa2a8b4dccb8203fe1d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						15,
+						16,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "altair_interfaces__py",
+					"jsonFile" : "directory-altair_interfaces__py-d6cb95946b83ff4dbb66.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/altair_interfaces__py",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "altair_interfaces__rs",
+					"jsonFile" : "directory-altair_interfaces__rs-8fe74463bb1540662e72.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/altair/Person_Tracking_Roboware/build/altair_interfaces/altair_interfaces__rs",
+					"targetIndexes" : 
+					[
+						14
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "altair_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces-29ec9f0540e81eb12633.json",
+					"name" : "altair_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__cpp-f0cdf0a8fd87ccfe9f2e.json",
+					"name" : "altair_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "altair_interfaces__py::@0541b2579cc76668f7b4",
+					"jsonFile" : "target-altair_interfaces__py-4866dc04ecb6fc7dc857.json",
+					"name" : "altair_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_generator_c-b1d7eab47abe378812d0.json",
+					"name" : "altair_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_generator_py-6a54d1839c0befb44501.json",
+					"name" : "altair_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_typesupport_c-177874d286688f110c03.json",
+					"name" : "altair_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_typesupport_c__pyext-4bae8067500d5bc4e00b.json",
+					"name" : "altair_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_typesupport_cpp-ed6ffdc6b9268b2ad260.json",
+					"name" : "altair_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_typesupport_fastrtps_c-901f250ec7e5fbea1208.json",
+					"name" : "altair_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_typesupport_fastrtps_c__pyext-479cf4446b79c3245077.json",
+					"name" : "altair_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_typesupport_fastrtps_cpp-eaeb68a8b66e3603939d.json",
+					"name" : "altair_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_typesupport_introspection_c-99781c2531a347c20b98.json",
+					"name" : "altair_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_typesupport_introspection_c__pyext-367009a2067778935ac2.json",
+					"name" : "altair_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces__rosidl_typesupport_introspection_cpp-5b49637ff71cfb64a05c.json",
+					"name" : "altair_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "altair_interfaces__rs::@bf88e0e1c4316d89ba53",
+					"jsonFile" : "target-altair_interfaces__rs-002b3b54ad6d426ab601.json",
+					"name" : "altair_interfaces__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "altair_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-altair_interfaces_uninstall-ef20538905b6aa070c07.json",
+					"name" : "altair_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_altair_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_altair_interfaces_egg-e9d5ff9d544deb6ef695.json",
+					"name" : "ament_cmake_python_build_altair_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_altair_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_altair_interfaces-28361e5af29d25aed39a.json",
+					"name" : "ament_cmake_python_copy_altair_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-792b07b6168e0c2f2343.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/altair/Person_Tracking_Roboware/build/altair_interfaces",
+		"source" : "/home/altair/Person_Tracking_Roboware/src/altair_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

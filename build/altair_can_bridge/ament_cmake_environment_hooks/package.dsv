@@ -1,0 +1,4 @@
+source;share/altair_can_bridge/local_setup.bash
+source;share/altair_can_bridge/local_setup.dsv
+source;share/altair_can_bridge/local_setup.sh
+source;share/altair_can_bridge/local_setup.zsh

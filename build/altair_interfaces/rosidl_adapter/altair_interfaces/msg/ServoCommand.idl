@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from altair_interfaces/msg/ServoCommand.msg
+// generated code does not contain a copyright notice
+
+
+module altair_interfaces {
+  module msg {
+    typedef uint8 uint8__6[6];
+    @verbatim (language="comment", text=
+      "Servo (6ch サーボモジュール) の角度指令メッセージ定義")
+    struct ServoCommand {
+      @verbatim (language="comment", text=
+        "サーボ1〜6の目標角度" "\n"
+        "(※ 180を超える場合はマイコン側で180に自動的にクリップされます)")
+      @unit (value="0..180 度")
+      uint8__6 angles;
+    };
+  };
+};

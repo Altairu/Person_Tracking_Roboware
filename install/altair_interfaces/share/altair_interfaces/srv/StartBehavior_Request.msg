@@ -1,0 +1,3 @@
+# 特定の動作プログラムを動的に起動するためのサービス
+
+string behavior_name    # 起動するスクリプトファイル名 (例: "example_behavior.py")

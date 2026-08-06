@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from altair_interfaces/srv/TriggerControl.srv
+// generated code does not contain a copyright notice
+
+
+module altair_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "MDDのパラメータ送信 ＆ 制御実行モード開始を指示するサービス定義")
+    struct TriggerControl_Request {
+      uint8 structure_needs_at_least_one_member;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct TriggerControl_Response {
+      @verbatim (language="comment", text=
+        "制御開始指示が成功したか")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "結果のステータスメッセージやエラー情報")
+      string message;
+    };
+  };
+};
