@@ -28,6 +28,7 @@ setup(
             'RealSense_node = Robowarepkg.RealSense_node:main',
             'PID_node = Robowarepkg.PID_node:main',
             'FaceAnimation_node = Robowarepkg.FaceAnimation_node:main',
+            'can_node = Robowarepkg.can_node:main',
         ],
     },
 )

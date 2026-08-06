@@ -39,7 +39,10 @@ set -u
 spawn_wezterm_tab "RealSense_node" "$run_env; ros2 run Robowarepkg RealSense_node; exec bash"
 spawn_wezterm_tab "web_socket_node" "$run_env; ros2 run Robowarepkg web_socket_node; exec bash"
 spawn_wezterm_tab "Roboware_node" "$run_env; ros2 run Robowarepkg Roboware_node; exec bash"
-spawn_wezterm_tab "PID_node" "$run_env; ros2 run Robowarepkg PID_node; exec bash"
-spawn_wezterm_tab "serial_read_node" "$run_env; ros2 run Robowarepkg serial_read_node; exec bash"
-spawn_wezterm_tab "serial_send_node" "$run_env; ros2 run Robowarepkg serial_send_node; exec bash"
+spawn_wezterm_tab "can_node" "$run_env; ros2 run Robowarepkg can_node; exec bash"
 spawn_wezterm_tab "FaceAnimation_node" "$run_env; ros2 run Robowarepkg FaceAnimation_node; exec bash"
+# PID_node は PC 上の PID を使用しない構成のためコメントアウト (互換性維持のため残存)
+# spawn_wezterm_tab "PID_node" "$run_env; ros2 run Robowarepkg PID_node; exec bash"
+# 以下はシリアル通信時代のノード (CAN 移行後は使用しない)
+# spawn_wezterm_tab "serial_read_node" "$run_env; ros2 run Robowarepkg serial_read_node; exec bash"
+# spawn_wezterm_tab "serial_send_node" "$run_env; ros2 run Robowarepkg serial_send_node; exec bash"

@@ -1,98 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robot Control</title>
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0f1117;
+            color: #e0e0e0;
+            min-height: 100vh;
         }
-        .container {
+
+        .page-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+        }
+
+        /* --- CAN 接続状態バー --- */
+        .can-status-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #1a1d27;
+            border: 1px solid #2a2d3a;
+            border-radius: 8px;
+            padding: 10px 16px;
+            margin-bottom: 20px;
+            font-size: 0.88rem;
+        }
+        .can-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #555;
+            flex-shrink: 0;
+            transition: background 0.3s;
+        }
+        .can-dot.connected { background: #4caf50; box-shadow: 0 0 6px #4caf50; }
+        .can-dot.disconnected { background: #f44336; box-shadow: 0 0 6px #f44336; }
+        #can-status-text { color: #aaa; }
+
+        /* --- コントロールカード --- */
+        .card {
+            background: #1a1d27;
+            border: 1px solid #2a2d3a;
+            border-radius: 10px;
             padding: 20px;
+            margin-bottom: 20px;
         }
-        .button {
-            width: 200px;
-            height: 50px;
-            margin: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: #007bff;
-            color: white;
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #90caf9;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #2a2d3a;
+        }
+
+        /* --- モードボタン --- */
+        .mode-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
         }
-        .button:active {
-            background-color: #0056b3;
+        .btn:active { transform: scale(0.97); }
+        .btn-mode {
+            background: #e53935;
+            color: #fff;
         }
-        .toggle-button {
-            width: 200px;
-            height: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            margin: 20px auto;
-            background-color: #ff5722;
-            color: white;
-            border: none;
+        .btn-mode.active { background: #43a047; }
+        .btn-primary {
+            background: #1976d2;
+            color: #fff;
+        }
+        .btn-primary:hover { background: #1565c0; }
+        .btn-warning {
+            background: #f57c00;
+            color: #fff;
+        }
+        .btn-warning:hover { background: #e65100; }
+
+        /* WS 接続状態 */
+        .ws-status {
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        .ws-status.connected { color: #4caf50; }
+        .ws-status.disconnected { color: #f44336; }
+
+        /* --- PID パラメータパネル --- */
+        .params-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 560px) {
+            .params-grid { grid-template-columns: 1fr; }
+        }
+
+        .ch-panel {
+            background: #12151f;
+            border: 1px solid #2a2d3a;
+            border-radius: 8px;
+            padding: 14px;
+        }
+        .ch-panel h3 {
+            font-size: 0.9rem;
+            color: #81d4fa;
+            margin-bottom: 12px;
+        }
+
+        .param-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .param-row label {
+            font-size: 0.82rem;
+            color: #aaa;
+            width: 90px;
+            flex-shrink: 0;
+        }
+        .param-row input {
+            flex: 1;
+            background: #1a1d27;
+            border: 1px solid #3a3d4a;
             border-radius: 5px;
-            cursor: pointer;
+            color: #e0e0e0;
+            padding: 5px 8px;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s;
         }
-        .toggle-button.active {
-            background-color: #4caf50;
+        .param-row input:focus { border-color: #1976d2; }
+
+        .params-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+            flex-wrap: wrap;
         }
-        .status {
-            margin-top: 20px;
-            font-size: 18px;
+
+        .save-feedback {
+            font-size: 0.82rem;
+            margin-top: 8px;
+            min-height: 1.2em;
+            color: #4caf50;
         }
-        .status.connected {
-            color: green;
-        }
-        .status.disconnected {
-            color: red;
-        }
+        .save-feedback.error { color: #f44336; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="page-wrapper">
         <h1>Robot Control Panel</h1>
-        <button class="toggle-button" id="modeToggle" onclick="toggleMode()">Mode: Control</button>
-        <div class="status" id="status">Status: Disconnected</div>
+
+        <!-- CAN 接続状態バー -->
+        <div class="can-status-bar">
+            <div class="can-dot disconnected" id="can-dot"></div>
+            <span id="can-status-text">CAN: 未接続</span>
+        </div>
+
+        <!-- モード / WebSocket カード -->
+        <div class="card">
+            <div class="card-title">制御モード</div>
+            <div class="mode-row">
+                <button class="btn btn-mode" id="modeToggle" onclick="toggleMode()">
+                    Mode: Control
+                </button>
+            </div>
+            <div class="ws-status disconnected" id="ws-status">WebSocket: 切断中</div>
+        </div>
+
+        <!-- MDD パラメータカード -->
+        <div class="card">
+            <div class="card-title">MDDパラメータ設定 (PID / タイヤ径 / 方向)</div>
+            <div class="params-grid">
+                <!-- ch1 (右モータ) -->
+                <div class="ch-panel">
+                    <h3>ch1 (右モータ)</h3>
+                    <div class="param-row">
+                        <label>P ゲイン</label>
+                        <input type="number" id="ch1-p" step="0.001" value="1.0">
+                    </div>
+                    <div class="param-row">
+                        <label>I ゲイン</label>
+                        <input type="number" id="ch1-i" step="0.001" value="0.0">
+                    </div>
+                    <div class="param-row">
+                        <label>D ゲイン</label>
+                        <input type="number" id="ch1-d" step="0.001" value="0.0">
+                    </div>
+                    <div class="param-row">
+                        <label>方向 (1/-1)</label>
+                        <input type="number" id="ch1-dir" step="1" min="-1" max="1" value="1">
+                    </div>
+                    <div class="param-row">
+                        <label>タイヤ径 mm</label>
+                        <input type="number" id="ch1-dia" step="1" min="1" value="100">
+                    </div>
+                </div>
+                <!-- ch2 (左モータ) -->
+                <div class="ch-panel">
+                    <h3>ch2 (左モータ)</h3>
+                    <div class="param-row">
+                        <label>P ゲイン</label>
+                        <input type="number" id="ch2-p" step="0.001" value="1.0">
+                    </div>
+                    <div class="param-row">
+                        <label>I ゲイン</label>
+                        <input type="number" id="ch2-i" step="0.001" value="0.0">
+                    </div>
+                    <div class="param-row">
+                        <label>D ゲイン</label>
+                        <input type="number" id="ch2-d" step="0.001" value="0.0">
+                    </div>
+                    <div class="param-row">
+                        <label>方向 (1/-1)</label>
+                        <input type="number" id="ch2-dir" step="1" min="-1" max="1" value="1">
+                    </div>
+                    <div class="param-row">
+                        <label>タイヤ径 mm</label>
+                        <input type="number" id="ch2-dia" step="1" min="1" value="100">
+                    </div>
+                </div>
+            </div>
+            <div class="params-actions">
+                <button class="btn btn-primary" onclick="saveParams()">保存 + 再送信</button>
+                <button class="btn btn-warning" onclick="reloadParams()">現在値を読み込む</button>
+            </div>
+            <div class="save-feedback" id="save-feedback"></div>
+        </div>
     </div>
 
     <script>
         let websocket;
-        let currentMode = 0; // Control: 0, Follow: 1
-        let stop = 0; // Emergency stop: 1 = Stop, 0 = Running
-        let lx = 100, ly = 100, rx = 100, ry = 100; // Joystick default values
+        let currentMode = 0;
+        let stop = 0;
+        let lx = 100, ly = 100, rx = 100, ry = 100;
         const reconnectInterval = 5000;
 
+        // --- WebSocket 接続 ---
         function connectWebSocket() {
             websocket = new WebSocket("ws://10.53.255.212:8080/ws");
 
             websocket.onopen = function () {
-                document.getElementById('status').innerText = "Status: Connected";
-                document.getElementById('status').className = "status connected";
+                document.getElementById('ws-status').innerText = "WebSocket: 接続済み";
+                document.getElementById('ws-status').className = "ws-status connected";
+                // 起動時に現在のパラメータを取得
+                websocket.send(JSON.stringify({ type: 'get_mdd_params' }));
             };
 
             websocket.onclose = function () {
-                document.getElementById('status').innerText = "Status: Disconnected";
-                document.getElementById('status').className = "status disconnected";
+                document.getElementById('ws-status').innerText = "WebSocket: 切断中";
+                document.getElementById('ws-status').className = "ws-status disconnected";
                 setTimeout(connectWebSocket, reconnectInterval);
             };
 
             websocket.onerror = function (error) {
                 console.error("WebSocket error:", error);
             };
+
+            websocket.onmessage = function (event) {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.type === 'mdd_params_ack') {
+                        applyParamsToUI(data.params);
+                        updateCanStatus(data.can_connected, data.can_port);
+                        return;
+                    }
+                } catch (e) {
+                    // JSON でなければ無視 (既存の CSV 応答など)
+                }
+            };
         }
 
+        // --- CAN 状態表示 ---
+        function updateCanStatus(connected, port) {
+            const dot = document.getElementById('can-dot');
+            const text = document.getElementById('can-status-text');
+            if (connected) {
+                dot.className = 'can-dot connected';
+                text.innerText = 'CAN: 接続済み (' + port + ')';
+            } else {
+                dot.className = 'can-dot disconnected';
+                text.innerText = 'CAN: 未接続';
+            }
+        }
+
+        // --- モード切り替え ---
         function toggleMode() {
             const modeButton = document.getElementById("modeToggle");
             currentMode = currentMode === 0 ? 1 : 0;
-
             if (currentMode === 1) {
                 modeButton.innerText = "Mode: Follow";
                 modeButton.classList.add("active");
@@ -100,21 +320,18 @@
                 modeButton.innerText = "Mode: Control";
                 modeButton.classList.remove("active");
             }
-
             sendCommand();
         }
 
+        // --- ゲームパッド ---
         function updateGamepadValues() {
             const gamepads = navigator.getGamepads();
             const gamepad = gamepads[0];
-
             if (gamepad) {
                 lx = gamepad.axes[0] * 100 + 100;
                 ly = gamepad.axes[1] * -100 + 100;
                 rx = gamepad.axes[2] * 100 + 100;
                 ry = gamepad.axes[3] * -100 + 100;
-
-                // Send updated joystick values
                 sendCommand();
             }
         }
@@ -123,6 +340,70 @@
             if (websocket && websocket.readyState === WebSocket.OPEN) {
                 const command = [currentMode, rx, ry, lx, ly, stop];
                 websocket.send(command.join(","));
+            }
+        }
+
+        // --- MDD パラメータ ---
+        function collectParams() {
+            return {
+                ch1: {
+                    p:           parseFloat(document.getElementById('ch1-p').value)   || 0,
+                    i:           parseFloat(document.getElementById('ch1-i').value)   || 0,
+                    d:           parseFloat(document.getElementById('ch1-d').value)   || 0,
+                    direction:   parseInt(document.getElementById('ch1-dir').value)   || 1,
+                    diameter_mm: parseFloat(document.getElementById('ch1-dia').value) || 100,
+                },
+                ch2: {
+                    p:           parseFloat(document.getElementById('ch2-p').value)   || 0,
+                    i:           parseFloat(document.getElementById('ch2-i').value)   || 0,
+                    d:           parseFloat(document.getElementById('ch2-d').value)   || 0,
+                    direction:   parseInt(document.getElementById('ch2-dir').value)   || 1,
+                    diameter_mm: parseFloat(document.getElementById('ch2-dia').value) || 100,
+                }
+            };
+        }
+
+        function applyParamsToUI(params) {
+            if (!params) return;
+            const ch1 = params.ch1 || {};
+            const ch2 = params.ch2 || {};
+            document.getElementById('ch1-p').value   = ch1.p           ?? 1.0;
+            document.getElementById('ch1-i').value   = ch1.i           ?? 0.0;
+            document.getElementById('ch1-d').value   = ch1.d           ?? 0.0;
+            document.getElementById('ch1-dir').value = ch1.direction   ?? 1;
+            document.getElementById('ch1-dia').value = ch1.diameter_mm ?? 100;
+            document.getElementById('ch2-p').value   = ch2.p           ?? 1.0;
+            document.getElementById('ch2-i').value   = ch2.i           ?? 0.0;
+            document.getElementById('ch2-d').value   = ch2.d           ?? 0.0;
+            document.getElementById('ch2-dir').value = ch2.direction   ?? 1;
+            document.getElementById('ch2-dia').value = ch2.diameter_mm ?? 100;
+        }
+
+        function saveParams() {
+            if (!websocket || websocket.readyState !== WebSocket.OPEN) {
+                showFeedback('WebSocket が接続されていません。', true);
+                return;
+            }
+            const params = collectParams();
+            websocket.send(JSON.stringify({ type: 'mdd_params', params: params }));
+            showFeedback('送信しました。応答待ち...');
+        }
+
+        function reloadParams() {
+            if (!websocket || websocket.readyState !== WebSocket.OPEN) {
+                showFeedback('WebSocket が接続されていません。', true);
+                return;
+            }
+            websocket.send(JSON.stringify({ type: 'get_mdd_params' }));
+            showFeedback('読み込み中...');
+        }
+
+        function showFeedback(msg, isError = false) {
+            const el = document.getElementById('save-feedback');
+            el.innerText = msg;
+            el.className = 'save-feedback' + (isError ? ' error' : '');
+            if (!isError) {
+                setTimeout(() => { el.innerText = ''; }, 3000);
             }
         }
 
